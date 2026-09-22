@@ -2,7 +2,7 @@
 
 An open, up-to-date mapping of equivalent managed services across **AWS**, **Microsoft Azure**, and **Google Cloud**.
 
-Live site: https://soyomarvaldezg.github.io/compare-cloud/ — the site redeploys automatically on every push to `main`.
+Live site: https://soyomarvaldezg.github.io/compare-cloud/
 
 ![Compare Cloud — AWS vs Azure vs Google Cloud](docs/screenshots/hero.png)
 

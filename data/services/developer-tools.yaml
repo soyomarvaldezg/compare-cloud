@@ -7,9 +7,8 @@ services:
   aws:
     name: AWS Cloud9
     url: https://aws.amazon.com/cloud9/
-    note: 'closed to new customers; CodeCommit and CodeStar deprecated — AWS recommends
-      VS Code or JetBrains with AWS Toolkit and Amazon Q Developer; also: CodeBuild,
-      CodeDeploy, CodePipeline'
+    note: closed to new customers; AWS recommends VS Code or JetBrains with AWS Toolkit
+      and Amazon Q Developer
   azure:
     name: Azure Boards
     url: https://azure.microsoft.com/en-us/products/devops/boards/
@@ -58,3 +57,17 @@ services:
   azure:
     name: Azure Dev/Test
     url: https://azure.microsoft.com/en-us/products/devtest-lab/
+- id: continuous-integration-delivery
+  name: Continuous integration & delivery
+  verified: '2026-09-21'
+  aws:
+    name: AWS CodePipeline
+    url: https://aws.amazon.com/codepipeline/
+    note: CI with CodeBuild; deployments with CodeDeploy
+  azure:
+    name: Azure Pipelines
+    url: https://azure.microsoft.com/en-us/products/devops/pipelines/
+  gcp:
+    name: Cloud Build
+    url: https://cloud.google.com/build
+    note: deployments with Cloud Deploy
