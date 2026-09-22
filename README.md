@@ -2,7 +2,7 @@
 
 An open, up-to-date mapping of equivalent managed services across **AWS**, **Microsoft Azure**, and **Google Cloud**.
 
-Live site: `https://soyomarvaldezg.github.io/compare-cloud/` (after enabling GitHub Pages, see below).
+Live site: https://soyomarvaldezg.github.io/compare-cloud/ — the site redeploys automatically on every push to `main`.
 
 ![Compare Cloud — AWS vs Azure vs Google Cloud](docs/screenshots/hero.png)
 
@@ -47,7 +47,6 @@ services:
 Rules enforced by the build: unique `id` per service, ISO `verified` date, at least one provider, `https://` URLs.
 
 ## How to contribute a correction
-
 1. Find the service in `data/services/<category>.yaml`.
 2. Edit the name/URL and bump `verified` to today.
 3. Open a pull request — that's it. CI re-validates and redeploys.
@@ -73,12 +72,8 @@ What stays human: confirming that the suggested replacement is the right mapping
 
 ## Provenance and license
 
-- **AI-assisted development, honestly noted:** this project was built with AI assistance. Every data change was reviewed and verified against vendor sources before shipping; the automated link checker (above) is the ongoing guardrail. Data corrections are human-judgment calls, recorded as one-line diffs.
+- **AI-assisted development:** this project was built with AI assistance. Every data change was reviewed and verified against vendor sources before shipping; the automated link checker (above) is the ongoing guardrail. Data corrections are human-judgment calls, recorded as one-line diffs.
 - Initial dataset seeded from [ilyas-it83/CloudComparer](https://github.com/ilyas-it83/CloudComparer) (MIT, © Ilyas F), pruned to AWS/Azure/GCP, with renames applied and retired documentation domains rewritten. Thanks to the original author.
 - Cross-checked against official vendor references: Google's [AWS/Azure → Google Cloud comparison](https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison) and Microsoft's [AWS to Azure services comparison](https://learn.microsoft.com/en-us/azure/architecture/aws-professional/services).
 - Product names and links point to vendor pages; trademarks belong to their owners.
 - This repository is MIT licensed (see [LICENSE](LICENSE)).
-
-## Enabling the site
-
-Push this repository to GitHub as `compare-cloud`, then in **Settings → Pages** choose **Source: GitHub Actions**. The deploy workflow builds `site/` and publishes it on every push to `main`.
