@@ -1,0 +1,106 @@
+category: Networking & Content Delivery
+description: ''
+services:
+- id: virtual-networking
+  name: Virtual Networking
+  verified: '2026-09-21'
+  aws:
+    name: Amazon VPC
+    url: https://aws.amazon.com/vpc/
+  azure:
+    name: Azure VNet
+    url: https://azure.microsoft.com/en-us/products/virtual-network/
+  gcp:
+    name: Virtual Private Cloud
+    url: https://cloud.google.com/vpc
+- id: virtual-network-connectivity
+  name: Virtual network connectivity
+  verified: '2026-09-21'
+  aws:
+    name: AWS Transit Gateway
+    url: https://aws.amazon.com/transit-gateway/
+    note: 'also: AWS VPC peering'
+  azure:
+    name: Azure VNet Peering
+    url: https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview
+  gcp:
+    name: VPC Peering
+    url: https://docs.cloud.google.com/vpc/docs/vpc-peering
+- id: network-gateway
+  name: Network Gateway
+  verified: '2026-09-21'
+  aws:
+    name: AWS Site-to-Site VPN
+    url: https://aws.amazon.com/vpn/site-to-site-vpn/
+    note: 'also: AWS Client VPN'
+  azure:
+    name: Azure VPN Gateway
+    url: https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/
+  gcp:
+    name: Cloud VPN
+    url: https://cloud.google.com/resources/networking
+- id: content-delivery-network
+  name: Content Delivery Network
+  verified: '2026-09-21'
+  aws:
+    name: Amazon CloudFront
+    url: https://aws.amazon.com/cloudfront/
+  azure:
+    name: Azure CDN
+    url: https://azure.microsoft.com/en-us/products/cdn/
+    note: 'also: Azure Front Door'
+  gcp:
+    name: Cloud CDN
+    url: https://cloud.google.com/cdn
+- id: networking-content-delivery
+  name: Networking & Content Delivery
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Route 53
+    url: https://aws.amazon.com/route53/
+  azure:
+    name: Azure DNS
+    url: https://azure.microsoft.com/en-us/products/dns/
+  gcp:
+    name: Cloud DNS
+    url: https://cloud.google.com/dns
+- id: global-traffic-management
+  name: Global Traffic Management
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Route 53 Traffic Flow
+    url: https://aws.amazon.com/blogs/aws/new-route-53-traffic-flow/
+    note: 'also: AWS Global Accelerator'
+  azure:
+    name: Azure Traffic Manager
+    url: https://azure.microsoft.com/en-us/products/traffic-manager/
+  gcp:
+    name: Cloud Load Balancing
+    url: https://cloud.google.com/load-balancing
+    note: global anycast LB; geo/failover routing via Cloud DNS policies
+- id: private-connectivity
+  name: Private Connectivity
+  verified: '2026-09-21'
+  aws:
+    name: AWS Direct Connect
+    url: https://aws.amazon.com/directconnect/
+    note: 'also: AWS Private Link'
+  azure:
+    name: Azure Express Route
+    url: https://azure.microsoft.com/en-us/products/expressroute/
+  gcp:
+    name: Cloud Interconnect
+    url: https://cloud.google.com/network-connectivity
+    note: 'Dedicated and Partner Interconnect; also: HA VPN'
+- id: load-balancers
+  name: Load Balancers
+  verified: '2026-09-21'
+  aws:
+    name: Elastic Load Balancing
+    url: https://aws.amazon.com/elasticloadbalancing/
+  azure:
+    name: Azure Load Balancer
+    url: https://azure.microsoft.com/en-us/products/load-balancer/
+  gcp:
+    name: Cloud Load Balancing
+    url: https://cloud.google.com/load-balancing

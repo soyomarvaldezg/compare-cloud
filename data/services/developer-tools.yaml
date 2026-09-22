@@ -1,0 +1,60 @@
+category: Developer Tools
+description: ''
+services:
+- id: cloud-software-development-kit
+  name: Cloud Software Development Kit
+  verified: '2026-09-21'
+  aws:
+    name: AWS Cloud9
+    url: https://aws.amazon.com/cloud9/
+    note: 'closed to new customers; CodeCommit and CodeStar deprecated — AWS recommends
+      VS Code or JetBrains with AWS Toolkit and Amazon Q Developer; also: CodeBuild,
+      CodeDeploy, CodePipeline'
+  azure:
+    name: Azure Boards
+    url: https://azure.microsoft.com/en-us/products/devops/boards/
+    note: 'also: Azure Pipelines, Azure Repos, Azure Test Plans, Azure Artifacts'
+  gcp:
+    name: Cloud Source Repositories
+    url: https://docs.cloud.google.com/source-repositories/docs
+    note: no new customers; Google recommends GitHub/GitLab
+- id: cloud-software-development-kit-2
+  name: Cloud Software Development Kit
+  verified: '2026-09-21'
+  aws:
+    name: AWS Builder Center
+    url: https://builder.aws.com/build/tools
+    note: formerly AWS Tools
+  azure:
+    name: Azure DevOps
+    url: https://azure.microsoft.com/en-us/products/devops/
+    note: 'also: Azure SDKs and tools'
+  gcp:
+    name: Gemini Code Assist
+    url: https://codeassist.google/products/business
+    note: formerly Cloud Code
+- id: game-development
+  name: Game Development
+  verified: '2026-09-21'
+  aws:
+    name: O3DE (Open 3D Engine)
+    url: https://o3de.org/
+    note: Lumberyard discontinued and donated to the Linux Foundation as O3DE
+  azure:
+    name: Visual Studio
+    url: https://visualstudio.microsoft.com/
+- id: robotics-development
+  name: Robotics Development
+  verified: '2026-09-21'
+  aws:
+    name: AWS RoboMaker (discontinued)
+    note: feature development ended
+- id: development-testing
+  name: Development & Testing
+  verified: '2026-09-21'
+  aws:
+    name: AWS Developer Tools
+    url: https://aws.amazon.com/products/developer-tools/
+  azure:
+    name: Azure Dev/Test
+    url: https://azure.microsoft.com/en-us/products/devtest-lab/

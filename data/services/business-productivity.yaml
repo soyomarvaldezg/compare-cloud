@@ -1,0 +1,47 @@
+category: Business Productivity
+description: ''
+services:
+- id: office-document-solutions
+  name: Office Document Solutions
+  verified: '2026-09-21'
+  aws:
+    name: Amazon WorkDocs (retired)
+    note: retired 2025; no first-party successor
+  azure:
+    name: Microsoft 365
+    url: https://www.microsoft.com/en-us/microsoft-365
+  gcp:
+    name: Google Workspace
+    url: https://workspace.google.com/
+- id: desktop-application-streaming
+  name: Desktop Application Streaming
+  verified: '2026-09-21'
+  aws:
+    name: Amazon WorkSpaces Applications
+    url: https://aws.amazon.com/workspaces/applications/
+    note: formerly AppStream 2.0
+  azure:
+    name: Azure Virtual Desktop
+    url: https://azure.microsoft.com/en-us/products/virtual-desktop/
+- id: communications-service
+  name: Communications Service
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Chime
+    url: https://aws.amazon.com/chime/getting-started/
+    note: 'also: Amazon Connect'
+  azure:
+    name: Azure Communication Services
+    url: https://azure.microsoft.com/en-us/products/communication-services/
+- id: cloud-marketplace
+  name: Cloud Marketplace
+  verified: '2026-09-21'
+  aws:
+    name: AWS Marketplace
+    url: https://aws.amazon.com/marketplace
+  azure:
+    name: Azure Marketplace
+    url: https://learn.microsoft.com/en-us/marketplace/
+  gcp:
+    name: Google Cloud Marketplace
+    url: https://cloud.google.com/marketplace

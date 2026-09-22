@@ -1,0 +1,170 @@
+category: Security, Identity & Compliance
+description: ''
+services:
+- id: identity-access-management
+  name: Identity & Access Management
+  verified: '2026-09-21'
+  aws:
+    name: AWS Identity and Access Management (IAM)
+    url: https://docs.aws.amazon.com/iam/
+  azure:
+    name: Microsoft Entra ID
+    url: https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id
+    note: formerly Azure Active Directory
+  gcp:
+    name: Cloud IAM
+    url: https://cloud.google.com/products/iam
+    note: 'also: Cloud Identity-Aware Proxy'
+- id: customer-identity-and-access-management
+  name: Customer Identity and Access Management
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Cognito
+    url: https://aws.amazon.com/cognito/
+  azure:
+    name: Microsoft Entra External ID
+    url: https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id
+    note: formerly Azure AD B2C
+  gcp:
+    name: Firebase Authentication
+    url: https://firebase.google.com/docs/auth
+    note: 'also: Identity Platform'
+- id: cloud-security-assesment-service
+  name: Cloud Security Assesment Service
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Inspector
+    url: https://aws.amazon.com/inspector/
+    note: 'also: Amazon GuardDuty'
+  azure:
+    name: Microsoft Defender for Cloud
+    url: https://www.microsoft.com/en-us/security/business/cloud-security/microsoft-defender-cloud/
+    note: formerly Azure Security Center
+  gcp:
+    name: Security Command Center
+    url: https://cloud.google.com/security/products/security-command-center
+    note: includes Web Security Scanner
+- id: secured-socket-layer-ssl-certificates
+  name: Secured Socket Layer (SSL) Certificates
+  verified: '2026-09-21'
+  aws:
+    name: AWS Certificate Manager
+    url: https://aws.amazon.com/certificate-manager/
+  azure:
+    name: App Service Certificate
+    url: https://azure.microsoft.com/en-us/updates?id=introducing-app-service-certificates
+  gcp:
+    name: Certificate Manager
+    url: https://cloud.google.com/certificate-manager
+- id: hardware-based-security-module
+  name: Hardware Based Security Module
+  verified: '2026-09-21'
+  aws:
+    name: AWS CloudHSM
+    url: https://aws.amazon.com/cloudhsm/
+  azure:
+    name: Azure Key Vault
+    url: https://azure.microsoft.com/en-us/products/key-vault/
+  gcp:
+    name: Cloud Key Management Service
+    url: https://cloud.google.com/security/products/security-key-management
+- id: directory-services
+  name: Directory Services
+  verified: '2026-09-21'
+  aws:
+    name: AWS Directory Service
+    url: https://aws.amazon.com/directoryservice/
+  azure:
+    name: Microsoft Entra ID
+    url: https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id
+    note: formerly Azure Active Directory
+  gcp:
+    name: Cloud Identity
+    url: https://docs.cloud.google.com/identity/docs
+    note: 'also: Identity Platform'
+- id: key-management-services
+  name: Key Management Services
+  verified: '2026-09-21'
+  aws:
+    name: AWS Key Management Service
+    url: https://aws.amazon.com/kms/
+  azure:
+    name: Azure Key Vault
+    url: https://azure.microsoft.com/en-us/products/key-vault/
+  gcp:
+    name: Cloud Key Management Service
+    url: https://cloud.google.com/security/products/security-key-management
+- id: consolidated-management-of-multiple-cloud-accounts
+  name: Consolidated Management of Multiple Cloud Accounts
+  verified: '2026-09-21'
+  aws:
+    name: AWS Organizations
+    url: https://aws.amazon.com/organizations/
+    note: 'also: AWS Control Tower, AWS Resource Access Manager'
+  azure:
+    name: Azure Management Groups
+    url: https://learn.microsoft.com/en-us/azure/governance/management-groups/overview
+  gcp:
+    name: Resource Hierarchy (Organizations)
+    url: https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy
+- id: ddos-protection-service
+  name: DDos Protection Service
+  verified: '2026-09-21'
+  aws:
+    name: AWS Shield
+    url: https://aws.amazon.com/shield/
+  azure:
+    name: Azure DDoS Protection
+    url: https://azure.microsoft.com/en-us/products/ddos-protection/
+  gcp:
+    name: Cloud Armor
+    url: https://cloud.google.com/security/products/armor
+    note: GA; WAF rules plus always-on DDoS protection
+- id: web-application-firewall
+  name: Web Application Firewall
+  verified: '2026-09-21'
+  aws:
+    name: AWS WAF
+    url: https://aws.amazon.com/waf/
+  azure:
+    name: Azure Web Application Firewall
+    url: https://azure.microsoft.com/en-us/products/web-application-firewall
+  gcp:
+    name: Cloud Armor
+    url: https://cloud.google.com/security/products/armor
+    note: WAF rules
+- id: security-compliance-service
+  name: Security & Compliance Service
+  verified: '2026-09-21'
+  aws:
+    name: AWS Firewall Manager
+    url: https://aws.amazon.com/firewall-manager/
+    note: 'also: AWS Network Firewall'
+  azure:
+    name: Azure Firewall Manager
+    url: https://azure.microsoft.com/en-us/products/firewall-manager/
+- id: security-compliance-service-2
+  name: Security & Compliance Service
+  verified: '2026-09-21'
+  aws:
+    name: AWS Artifact
+    url: https://aws.amazon.com/artifact/
+  azure:
+    name: Azure Security & Compliance
+    url: https://azure.microsoft.com/en-us/explore/trusted-cloud/
+  gcp:
+    name: Security Command Center
+    url: https://cloud.google.com/security/products/security-command-center
+- id: sensitive-data-discovery-and-protection
+  name: Sensitive Data discovery and protection
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Macie
+    url: https://aws.amazon.com/macie/
+  azure:
+    name: Microsoft Purview
+    url: https://learn.microsoft.com/en-us/purview/
+  gcp:
+    name: Sensitive Data Protection
+    url: https://cloud.google.com/security/products/sensitive-data-protection
+    note: formerly Cloud DLP

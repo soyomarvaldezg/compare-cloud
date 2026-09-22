@@ -1,0 +1,136 @@
+category: Analytics
+description: ''
+services:
+- id: big-data-query-as-a-service
+  name: Big Data Query as a Service
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Athena
+    url: https://aws.amazon.com/athena/
+    note: 'also: AWS Lake Formation, Amazon HealthLake'
+  azure:
+    name: Azure Data Lake Analytics
+    url: https://azure.microsoft.com/en-us/products/data-lake-analytics/
+  gcp:
+    name: BigQuery
+    url: https://cloud.google.com/bigquery
+- id: big-data-managed-cluster-as-a-service
+  name: Big Data Managed Cluster as a Service
+  verified: '2026-09-21'
+  aws:
+    name: Amazon EMR
+    url: https://aws.amazon.com/emr/
+  azure:
+    name: Azure HDInsight
+    url: https://azure.microsoft.com/en-us/products/hdinsight/
+  gcp:
+    name: Managed Service for Apache Spark
+    url: https://cloud.google.com/products/managed-service-for-apache-spark
+    note: formerly Dataproc
+- id: cloud-search
+  name: Cloud Search
+  verified: '2026-09-21'
+  aws:
+    name: Amazon CloudSearch
+    url: https://aws.amazon.com/cloudsearch/
+    note: 'also: Amazon OpenSearch Service (formerly Elasticsearch)'
+  azure:
+    name: Azure AI Search
+    url: https://azure.microsoft.com/en-us/products/ai-services/ai-search
+    note: formerly Azure Search
+- id: streaming-service
+  name: Streaming Service
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Kinesis Data Streams
+    url: https://aws.amazon.com/kinesis/data-streams/
+    note: formerly Kinesis Streams
+  azure:
+    name: Azure Stream Analytics
+    url: https://azure.microsoft.com/en-us/products/stream-analytics/
+    note: 'also: Azure Event Hubs'
+  gcp:
+    name: Cloud Dataflow
+    url: https://cloud.google.com/products/dataflow
+- id: data-warehouse
+  name: Data Warehouse
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Redshift
+    url: https://aws.amazon.com/redshift/
+  azure:
+    name: Azure Synapse Analytics
+    url: https://azure.microsoft.com/en-us/products/synapse-analytics/
+    note: formerly SQL Data Warehouse
+  gcp:
+    name: BigQuery
+    url: https://cloud.google.com/bigquery
+- id: business-intelligence-data-visualization
+  name: Business Intelligence & Data Visualization
+  verified: '2026-09-21'
+  aws:
+    name: Amazon QuickSight
+    url: https://aws.amazon.com/quick/quicksight/
+  azure:
+    name: Microsoft Power BI
+    url: https://www.microsoft.com/en-us/power-platform/products/power-bi
+  gcp:
+    name: Looker
+    url: https://cloud.google.com/looker
+    note: 'also: Data Studio (free tier — renamed back from Looker Studio)'
+- id: cloud-etl
+  name: Cloud ETL
+  verified: '2026-09-21'
+  aws:
+    name: AWS Glue
+    url: https://aws.amazon.com/glue/
+    note: replaces Data Pipeline (retired)
+  azure:
+    name: Azure Data Factory
+    url: https://azure.microsoft.com/en-us/products/data-factory/
+    note: 'also: Azure Data Catalog, Logic Apps'
+  gcp:
+    name: Cloud Data Fusion
+    url: https://cloud.google.com/data-fusion
+    note: 'replaces Cloud DataPrep (retired); also: Managed Service for Apache Airflow
+      (formerly Cloud Composer), Managed Spark (formerly Dataproc)'
+- id: third-party-data-exchange
+  name: Third party data exchange
+  verified: '2026-09-21'
+  aws:
+    name: AWS Data Exchange
+    url: https://aws.amazon.com/data-exchange/
+  azure:
+    name: Azure Data Share
+    url: https://learn.microsoft.com/en-us/azure/data-share/
+  gcp:
+    name: Analytics Hub
+    url: https://cloud.google.com/analytics-hub
+- id: data-analytics-platform
+  name: Data Analytics platform
+  verified: '2026-09-21'
+  azure:
+    name: Azure Databricks
+    url: https://azure.microsoft.com/en-us/products/databricks/#overview
+  aws:
+    name: Amazon EMR
+    url: https://aws.amazon.com/emr/
+    note: Databricks is also available on AWS
+  gcp:
+    name: Managed Service for Apache Spark
+    url: https://cloud.google.com/products/managed-service-for-apache-spark
+    note: formerly Dataproc; Databricks also available on GCP
+- id: data-catalog
+  name: Data catalog & governance
+  verified: '2026-09-21'
+  aws:
+    name: AWS Glue Data Catalog
+    url: https://aws.amazon.com/glue/
+    note: 'also: Lake Formation'
+  azure:
+    name: Microsoft Purview
+    url: https://learn.microsoft.com/en-us/purview/
+  gcp:
+    name: Knowledge Catalog
+    url: https://cloud.google.com/products/knowledge-catalog
+    note: formerly Dataplex and Cloud Data Catalog

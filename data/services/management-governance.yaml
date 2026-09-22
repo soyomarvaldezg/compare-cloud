@@ -1,0 +1,131 @@
+category: Management & Governance
+description: ''
+services:
+- id: server-management-services
+  name: Server Management Services
+  verified: '2026-09-21'
+  aws:
+    name: AWS Systems Manager
+    url: https://aws.amazon.com/systems-manager/
+  azure:
+    name: Azure Update Manager
+    url: https://learn.microsoft.com/en-us/azure/update-manager/overview
+    note: formerly Operations Management Suite / Update Management
+- id: cloud-deployment-templates-infra-as-code
+  name: Cloud Deployment Templates/ Infra as Code
+  verified: '2026-09-21'
+  aws:
+    name: AWS CloudFormation
+    url: https://aws.amazon.com/cloudformation/
+    note: 'also: AWS CDK, AWS SAM, Terraform on AWS'
+  azure:
+    name: Azure Resource Manager
+    url: https://azure.microsoft.com/en-us/get-started/azure-portal/resource-manager/
+    note: 'also: Azure Building Blocks'
+  gcp:
+    name: Cloud Resource Manager
+    url: https://docs.cloud.google.com/resource-manager/docs
+    note: 'also: Infrastructure Manager (formerly Deployment Manager), Terraform on
+      Google Cloud'
+- id: logging-monitoring
+  name: Logging & Monitoring
+  verified: '2026-09-21'
+  aws:
+    name: Amazon CloudWatch
+    url: https://aws.amazon.com/cloudwatch/
+    note: 'also: AWS CloudTrail, AWS X-Ray, AWS Distro for OpenTelemetry, Amazon Managed
+      Service for Grafana, Amazon Managed Service for Prometheus'
+  azure:
+    name: Azure Monitor
+    url: https://azure.microsoft.com/en-us/products/monitor/
+    note: includes Log Analytics, Application Insights
+  gcp:
+    name: Google Cloud Observability
+    url: https://cloud.google.com/products/observability
+    note: formerly Stackdriver; includes Monitoring, Logging, Trace, Error Reporting
+- id: resource-configuration-inventory
+  name: Resource / Configuration Inventory
+  verified: '2026-09-21'
+  aws:
+    name: AWS Config
+    url: https://aws.amazon.com/config/
+    note: 'also: AWS License Manager'
+  azure:
+    name: Azure Monitor Activity Log
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/platform/activity-log
+  gcp:
+    name: Cloud Asset Inventory
+    url: https://cloud.google.com/asset-inventory
+    note: 'also: Sensitive Data Protection (formerly Cloud DLP)'
+- id: server-automation
+  name: Server Automation
+  verified: '2026-09-21'
+  aws:
+    name: AWS Systems Manager
+    url: https://aws.amazon.com/systems-manager/
+    note: replaces AWS OpsWorks (retired 2024)
+  azure:
+    name: Azure Automation
+    url: https://azure.microsoft.com/en-us/products/automation/
+    note: 'also: Azure VM extensions'
+- id: server-automation-2
+  name: Server Automation
+  verified: '2026-09-21'
+  aws:
+    name: AWS Service Catalog
+    url: https://aws.amazon.com/servicecatalog/
+- id: cloud-cost-performance-security-advisor
+  name: Cloud Cost / Performance / Security Advisor
+  verified: '2026-09-21'
+  aws:
+    name: AWS Trusted Advisor
+    url: https://aws.amazon.com/premiumsupport/technology/trusted-advisor/
+    note: 'also: AWS Well-Architected Tool, AWS Cost Management, AWS Cost Explorer,
+      AWS Compute Optimizer'
+  azure:
+    name: Azure Advisor
+    url: https://azure.microsoft.com/en-us/products/advisor/
+    note: 'also: Azure Cost Management'
+  gcp:
+    name: Active Assist (Recommender)
+    url: https://docs.cloud.google.com/recommender/docs/whatis-activeassist
+    note: cost and performance recommendations
+- id: alerts-and-remediation-guidance-service
+  name: Alerts and Remediation guidance Service
+  verified: '2026-09-21'
+  aws:
+    name: AWS Health
+    url: https://aws.amazon.com/premiumsupport/technology/aws-health/
+    note: formerly Personal Health Dashboard
+  azure:
+    name: Azure Monitor
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview
+    note: 'also: Azure Service Health'
+- id: cloud-management-tools
+  name: Cloud Management Tools
+  verified: '2026-09-21'
+  aws:
+    name: AWS Command Line Interface
+    url: https://aws.amazon.com/cli/
+    note: 'also: AWS CloudShell, AWS Management Console, AWS Console Mobile Application,
+      AWS Tools & SDKs'
+  azure:
+    name: Azure CLI
+    url: https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
+    note: 'also: Azure Powershell, Azure Management Console, Azure Cloud Shell'
+  gcp:
+    name: Cloud Shell
+    url: https://docs.cloud.google.com/shell/docs
+    note: 'also: Cloud Console, Billing API, Cloud APIs'
+- id: automated-infra-management-services
+  name: Automated Infra Management Services
+  verified: '2026-09-21'
+  aws:
+    name: AWS Managed Services
+    url: https://aws.amazon.com/managed-services/
+- id: managed-cloud-services
+  name: Managed Cloud Services
+  verified: '2026-09-21'
+  aws:
+    name: AWS Managed Services
+    url: https://aws.amazon.com/managed-services/

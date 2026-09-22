@@ -1,0 +1,225 @@
+category: Compute
+description: ''
+services:
+- id: shared-web-hosting
+  name: Shared Web hosting
+  verified: '2026-09-21'
+  aws:
+    name: AWS Amplify
+    url: https://aws.amazon.com/amplify/hosting/
+  azure:
+    name: Azure App Service (Web Apps)
+    url: https://azure.microsoft.com/en-us/products/app-service/web/
+  gcp:
+    name: Firebase
+    url: https://firebase.google.com/docs/hosting
+- id: virtual-server
+  name: Virtual Server
+  verified: '2026-09-21'
+  aws:
+    name: Amazon EC2
+    url: https://aws.amazon.com/ec2/
+  azure:
+    name: Azure Virtual Machine
+    url: https://learn.microsoft.com/en-us/azure/virtual-machines/
+  gcp:
+    name: Compute Engine
+    url: https://cloud.google.com/products/compute
+- id: bare-metal-server
+  name: Bare Metal Server
+  verified: '2026-09-21'
+  aws:
+    name: Amazon EC2 Bare Metal Instance
+    url: https://aws.amazon.com/blogs/aws/category/compute/amazon-ec2-bare-metal/
+  azure:
+    name: Azure Large Instances (decommissioning)
+    note: SAP HANA Large Instances being decommissioned
+  gcp:
+    name: Bare Metal Solution
+    url: https://cloud.google.com/bare-metal
+- id: vmware
+  name: VMware
+  verified: '2026-09-21'
+  aws:
+    name: VMware Cloud on AWS
+    url: https://aws.amazon.com/vmware/
+  azure:
+    name: Azure VMware Solution
+    url: https://azure.microsoft.com/en-us/products/azure-vmware/
+  gcp:
+    name: Google Cloud VMware Engine
+    url: https://cloud.google.com/vmware-engine
+- id: virtual-dedicated-host
+  name: Virtual Dedicated Host
+  verified: '2026-09-21'
+  aws:
+    name: Amazon EC2 Dedicated Hosts
+    url: https://aws.amazon.com/ec2/dedicated-hosts/
+    note: 'also: AWS Nitro Enclaves'
+  azure:
+    name: Azure Dedicated Host
+    url: https://azure.microsoft.com/en-us/products/virtual-machines/dedicated-host/
+  gcp:
+    name: Sole-Tenant Nodes
+    url: https://docs.cloud.google.com/compute/docs/nodes/sole-tenant-nodes
+- id: high-performance-computing
+  name: High Performance Computing
+  verified: '2026-09-21'
+  aws:
+    name: High Performance Computing
+    url: https://aws.amazon.com/hpc/
+    note: AWS ParallelCluster, Elastic Fabric Adapter (EFA), Amazon DCV (formerly
+      NICE DCV)
+  azure:
+    name: Azure High Performance Compute
+    url: https://azure.microsoft.com/en-us/solutions/high-performance-computing/
+  gcp:
+    name: High performance computing
+    url: https://cloud.google.com/solutions/hpc
+- id: container-registration-service
+  name: Container Registration Service
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Elastic Container Registry (ECR)
+    url: https://aws.amazon.com/ecr/
+  azure:
+    name: Azure Container Registry
+    url: https://azure.microsoft.com/en-us/products/container-registry/
+  gcp:
+    name: Artifact Registry
+    url: https://docs.cloud.google.com/artifact-registry/docs
+- id: container-management-service
+  name: Container Management Service
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Elastic Container Service (ECS)
+    url: https://aws.amazon.com/ecs/
+    note: 'also: Amazon Elastic Kubernetes Service (EKS), Red Hat Openshift on AWS,
+      Bottlerocket'
+  azure:
+    name: Azure Kubernetes Service (AKS)
+    url: https://azure.microsoft.com/en-us/products/kubernetes-service/
+    note: 'also: Azure Container Instances, Azure Red Hat OpenShift'
+  gcp:
+    name: Google Kubernetes Engine (GKE)
+    url: https://cloud.google.com/kubernetes-engine
+- id: serverless-compute-for-containers
+  name: Serverless compute for containers
+  verified: '2026-09-21'
+  aws:
+    name: AWS Fargate
+    url: https://aws.amazon.com/fargate/
+  azure:
+    name: Azure Container Instances
+    url: https://azure.microsoft.com/en-us/products/container-instances/
+    note: 'also: Azure Container Apps'
+  gcp:
+    name: Google Cloud Run
+    url: https://cloud.google.com/run
+- id: serverless-container-platform
+  name: Serverless container platform
+  verified: '2026-09-21'
+  aws:
+    name: AWS App Runner
+    url: https://aws.amazon.com/apprunner/
+  azure:
+    name: Azure Container Apps
+    url: https://azure.microsoft.com/en-us/products/container-apps/
+  gcp:
+    name: Google Cloud Run
+    url: https://cloud.google.com/run
+- id: micro-services-app-development-platform
+  name: Micro Services App Development Platform
+  verified: '2026-09-21'
+  aws:
+    name: AWS Lambda
+    url: https://aws.amazon.com/lambda/
+  azure:
+    name: Azure Service Fabric
+    url: https://learn.microsoft.com/en-us/azure/service-fabric/service-fabric-overview
+    note: 'also: Azure Functions, Event Grid'
+  gcp:
+    name: Cloud Run Functions
+    url: https://cloud.google.com/functions
+    note: 'formerly Cloud Functions; also: Eventarc'
+- id: serverless-app-repository
+  name: Serverless app repository
+  verified: '2026-09-21'
+  aws:
+    name: AWS Serverless Application Repository
+    url: https://aws.amazon.com/serverless/serverlessrepo/
+- id: virtual-private-servers
+  name: Virtual Private Servers
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Lightsail
+    url: https://aws.amazon.com/lightsail/
+  azure:
+    name: Azure App Service Environment
+    url: https://learn.microsoft.com/en-us/azure/app-service/environment/overview
+- id: auto-scaling
+  name: Auto Scaling
+  verified: '2026-09-21'
+  aws:
+    name: Auto Scaling
+    url: https://aws.amazon.com/ec2/autoscaling/
+  azure:
+    name: Azure Autoscale
+    url: https://azure.microsoft.com/en-us/products/virtual-machines/
+    note: 'also: Virtual Machine Scale Sets'
+  gcp:
+    name: Compute Autoscaler
+    url: https://docs.cloud.google.com/compute/docs/autoscaler
+- id: batch-jobs
+  name: Batch Jobs
+  verified: '2026-09-21'
+  aws:
+    name: AWS Batch
+    url: https://aws.amazon.com/batch/
+  azure:
+    name: Azure Batch
+    url: https://azure.microsoft.com/en-us/products/batch/
+  gcp:
+    name: Spot VMs
+    url: https://cloud.google.com/solutions/spot-vms
+    note: formerly Preemptible VMs
+- id: app-development-deployment-java-net-php-python
+  name: App Development/ Deployment (Java /.Net /PHP /Python)
+  verified: '2026-09-21'
+  aws:
+    name: AWS Elastic Beanstalk
+    url: https://aws.amazon.com/elasticbeanstalk/
+  azure:
+    name: Azure Web Apps
+    url: https://azure.microsoft.com/en-us/products/app-service/web/
+    note: 'also: Azure Cloud Services'
+  gcp:
+    name: Google App Engine
+    url: https://cloud.google.com/appengine
+- id: event-driven-computing
+  name: Event Driven Computing
+  verified: '2026-09-21'
+  aws:
+    name: AWS Lambda
+    url: https://aws.amazon.com/lambda/
+  azure:
+    name: Azure Functions
+    url: https://azure.microsoft.com/en-us/products/functions/
+    note: 'also: Event Grid'
+  gcp:
+    name: Cloud Run Functions
+    url: https://cloud.google.com/functions
+    note: 'also: Eventarc'
+- id: hybrid-cloud
+  name: Hybrid Cloud
+  verified: '2026-09-21'
+  aws:
+    name: AWS Outposts
+    url: https://aws.amazon.com/outposts/
+  azure:
+    name: Azure Arc
+    url: https://azure.microsoft.com/en-us/products/azure-arc/
+  gcp:
+    name: GKE Enterprise
+    url: https://cloud.google.com/gke-enterprise
+    note: formerly Anthos

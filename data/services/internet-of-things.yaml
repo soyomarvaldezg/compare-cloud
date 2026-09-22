@@ -1,0 +1,36 @@
+category: Internet of Things
+description: ''
+services:
+- id: iot-platform
+  name: IoT Platform
+  verified: '2026-09-21'
+  aws:
+    name: AWS IoT Core
+    url: https://aws.amazon.com/iot/
+  azure:
+    name: Azure IoT Platform
+    url: https://azure.microsoft.com/en-us/solutions/iot/
+    note: 'also: Azure IoT Hub'
+  gcp:
+    name: Cloud IoT Core (retired)
+    note: retired 2023; Google recommends partners
+- id: iot-development-solutions
+  name: IoT Development Solutions
+  verified: '2026-09-21'
+  aws:
+    name: AWS IoT Greengrass
+    url: https://aws.amazon.com/greengrass/
+  azure:
+    name: Azure IoT
+    url: https://azure.microsoft.com/en-us/solutions/iot/
+    note: 'also: Azure IoT Edge'
+- id: iot-hardware
+  name: IoT Hardware
+  verified: '2026-09-21'
+  aws:
+    name: AWS IoT Core
+    url: https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html
+    note: IoT Button discontinued
+  azure:
+    name: Azure Sphere
+    url: https://azure.microsoft.com/en-us/products/azure-sphere/

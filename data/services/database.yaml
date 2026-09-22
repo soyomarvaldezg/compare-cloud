@@ -1,0 +1,87 @@
+category: Database
+description: ''
+services:
+- id: relational-database-management-service
+  name: Relational Database Management Service
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Aurora
+    url: https://aws.amazon.com/rds/aurora/
+    note: 'also: Amazon RDS'
+  azure:
+    name: Azure SQL Database
+    url: https://azure.microsoft.com/en-us/products/azure-sql/database/
+    note: 'also: Azure Database for MySQL/PostgreSQL, Azure SQL Edge'
+  gcp:
+    name: Cloud SQL
+    url: https://cloud.google.com/sql
+    note: 'also: Cloud Spanner'
+- id: non-relational-database-management-service
+  name: Non Relational Database Management Service
+  verified: '2026-09-21'
+  aws:
+    name: Amazon DynamoDB
+    url: https://aws.amazon.com/dynamodb/
+    note: 'also: Amazon DynamoDB Accelerator (DAX), Amazon DocumentDB (with MongoDB
+      compatibility), Amazon Keyspaces (Apache Cassandra)'
+  azure:
+    name: Azure Cosmos DB
+    url: https://learn.microsoft.com/en-us/azure/cosmos-db/
+    note: 'also: Azure Table Storage'
+  gcp:
+    name: Firestore
+    url: https://cloud.google.com/products/firestore
+    note: formerly Cloud Datastore
+- id: timeseries-database
+  name: Timeseries Database
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Timestream
+    url: https://aws.amazon.com/timestream/
+  azure:
+    name: Microsoft Fabric Real-Time Intelligence
+    url: https://learn.microsoft.com/en-us/previous-versions/azure/time-series-insights/migration-to-fabric
+    note: replaces Time Series Insights (retired)
+  gcp:
+    name: Cloud Bigtable
+    url: https://cloud.google.com/bigtable
+- id: graph-database
+  name: Graph Database
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Neptune
+    url: https://aws.amazon.com/neptune/
+  azure:
+    name: Azure Cosmos DB (Gremlin)
+    url: https://azure.microsoft.com/en-us/products/cosmos-db/
+    note: Gremlin API
+  gcp:
+    name: Spanner Graph
+    url: https://cloud.google.com/spanner
+    note: graph capabilities in Spanner
+- id: in-memory-data-store
+  name: In-Memory Data Store
+  verified: '2026-09-21'
+  aws:
+    name: Amazon ElastiCache
+    url: https://aws.amazon.com/elasticache/
+    note: 'also: Amazon MemoryDB for Redis'
+  azure:
+    name: Azure Cache for Redis
+    url: https://azure.microsoft.com/en-us/products/cache/
+  gcp:
+    name: MemoryStore for Redis
+    url: https://cloud.google.com/memorystore
+    note: 'also: MemoryStore for Valkey and Memcached'
+- id: data-warehousing
+  name: Data Warehousing
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Redshift
+    url: https://aws.amazon.com/redshift/
+  azure:
+    name: Azure Synapse Analytics
+    url: https://azure.microsoft.com/en-us/products/synapse-analytics/
+  gcp:
+    name: BigQuery
+    url: https://cloud.google.com/bigquery

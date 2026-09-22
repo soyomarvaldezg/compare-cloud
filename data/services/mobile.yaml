@@ -1,0 +1,91 @@
+category: Mobile
+description: ''
+services:
+- id: mobile-app-development-services
+  name: Mobile App Development Services
+  verified: '2026-09-21'
+  aws:
+    name: AWS Amplify
+    url: https://aws.amazon.com/amplify/
+    note: replaces Mobile Hub (retired)
+  azure:
+    name: Visual Studio App Center (retired)
+    url: https://learn.microsoft.com/en-us/appcenter/retirement
+    note: retired 2025
+  gcp:
+    name: Firebase
+    url: https://firebase.google.com/
+- id: web-api-management-service
+  name: Web API Management Service
+  verified: '2026-09-21'
+  aws:
+    name: Amazon API Gateway
+    url: https://aws.amazon.com/api-gateway/
+  azure:
+    name: Azure API Management
+    url: https://azure.microsoft.com/en-us/products/api-management
+  gcp:
+    name: Cloud Endpoints
+    url: https://docs.cloud.google.com/endpoints/docs
+- id: consolidated-mgmt-of-multiple-cloud-accounts
+  name: Consolidated Mgmt of Multiple Cloud Accounts
+  verified: '2026-09-21'
+  aws:
+    name: AWS Organizations
+    url: https://aws.amazon.com/organizations/
+  azure:
+    name: Azure Management Groups
+    url: https://learn.microsoft.com/en-us/azure/governance/management-groups/overview
+- id: mobile-app-testing-service
+  name: Mobile App Testing Service
+  verified: '2026-09-21'
+  aws:
+    name: AWS Device Farm
+    url: https://aws.amazon.com/device-farm/
+  azure:
+    name: App Center Test (retired)
+    url: https://learn.microsoft.com/en-us/appcenter/retirement
+  gcp:
+    name: Firebase Test Lab
+    url: https://firebase.google.com/products/test-lab
+- id: mobile-app-software-development-toolkit
+  name: Mobile App Software Development Toolkit
+  verified: '2026-09-21'
+  aws:
+    name: AWS Amplify
+    url: https://aws.amazon.com/amplify/
+  azure:
+    name: Azure Mobile Apps (retired)
+    note: SDK support ended; consider Azure App Service
+  gcp:
+    name: Google Cloud Developer Tools
+    url: https://cloud.google.com/products/tools
+- id: application-services
+  name: Application Services
+  verified: '2026-09-21'
+  aws:
+    name: AWS Step Functions
+    url: https://aws.amazon.com/step-functions/
+    note: 'also: Amazon EventBridge, Amazon AppFlow, Amazon Managed Workflows for
+      Apache Airflow (MWAA)'
+  azure:
+    name: Power Automate
+    url: https://make.powerautomate.com/
+    note: 'also: Logic Apps, Azure Functions, Event Grid'
+  gcp:
+    name: Workflows
+    url: https://cloud.google.com/workflows
+    note: 'also: Eventarc'
+- id: mobile-app-analytics
+  name: Mobile App Analytics
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Pinpoint
+    url: https://aws.amazon.com/pinpoint/
+  azure:
+    name: Visual Studio App Center (retired)
+    url: https://learn.microsoft.com/en-us/appcenter/retirement
+    note: retired 2025
+  gcp:
+    name: Google Analytics for Firebase
+    url: https://firebase.google.com/products/analytics

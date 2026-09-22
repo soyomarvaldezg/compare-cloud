@@ -1,0 +1,67 @@
+category: Storage
+description: ''
+services:
+- id: object-storage
+  name: Object Storage
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Simple Storage Service (S3)
+    url: https://docs.aws.amazon.com/s3/
+  azure:
+    name: Azure Blob Storage
+    url: https://azure.microsoft.com/en-us/products/storage/blobs/
+  gcp:
+    name: Cloud Storage
+    url: https://cloud.google.com/storage
+- id: virtual-machine-disk-storage
+  name: Virtual Machine Disk Storage
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Elastic Block Storage (EBS)
+    url: https://aws.amazon.com/ebs/
+  azure:
+    name: Azure Managed Disks
+    url: https://azure.microsoft.com/en-us/products/storage/disks/
+    note: 'also: Page Blobs (premium)'
+  gcp:
+    name: Persistent Disk
+    url: https://cloud.google.com/persistent-disk
+- id: file-storage-smb-compatible
+  name: File Storage (SMB Compatible)
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Elastic File System (EFS)
+    url: https://aws.amazon.com/efs/
+    note: 'also: Amazon FSx for Windows File Server, Amazon FSx for Lustre, Amazon
+      FSx for NetApp ONTAP, Amazon FSx for OpenZFS'
+  azure:
+    name: Azure Files
+    url: https://azure.microsoft.com/en-us/products/storage/files/
+    note: 'also: Azure NetApp Files'
+  gcp:
+    name: Filestore
+    url: https://cloud.google.com/filestore
+- id: long-term-cold-storage
+  name: Long Term Cold Storage
+  verified: '2026-09-21'
+  aws:
+    name: Amazon S3 Glacier
+    url: https://aws.amazon.com/s3/storage-classes/glacier/
+  azure:
+    name: Azure Archive Storage
+    url: https://azure.microsoft.com/en-us/products/storage/
+    note: 'also: Azure Cool Storage'
+  gcp:
+    name: Cloud Storage
+    url: https://cloud.google.com/storage
+    note: Archive storage class
+- id: hybrid-storage-storage-gateway
+  name: Hybrid Storage/Storage Gateway
+  verified: '2026-09-21'
+  aws:
+    name: AWS Storage Gateway
+    url: https://aws.amazon.com/storagegateway/
+  azure:
+    name: Azure File Sync
+    url: https://learn.microsoft.com/en-us/previous-versions/azure/storage/files/storage-files-migration-storsimple-8000
+    note: replaces StorSimple (retired)

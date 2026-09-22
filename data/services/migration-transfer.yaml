@@ -1,0 +1,111 @@
+category: Migration & Transfer
+description: ''
+services:
+- id: small-scale-data-transfer-service
+  name: Small Scale Data Transfer Service
+  verified: '2026-09-21'
+  aws:
+    name: AWS Snowball
+    url: https://aws.amazon.com/snowball/
+    note: 'also: AWS Transfer Family'
+  azure:
+    name: Azure Import/Export
+    url: https://azure.microsoft.com/en-us/pricing/details/storage-import-export/
+  gcp:
+    name: Storage Transfer Service
+    url: https://cloud.google.com/storage-transfer-service
+- id: large-scale-data-transfer-solution-terabyte-scale
+  name: Large Scale Data Transfer Solution (Terabyte Scale)
+  verified: '2026-09-21'
+  aws:
+    name: AWS Snowball
+    url: https://aws.amazon.com/snowball/
+    note: Snowcone consolidated into the Snowball family
+  azure:
+    name: Azure Data Box
+    url: https://azure.microsoft.com/en-us/products/databox/
+  gcp:
+    name: Transfer Appliance
+    url: https://docs.cloud.google.com/transfer-appliance/docs/4.0/overview
+- id: large-scale-data-transfer-solution-petabyte-scale
+  name: Large Scale Data Transfer Solution (Petabyte Scale)
+  verified: '2026-09-21'
+  aws:
+    name: AWS Snowball
+    url: https://aws.amazon.com/snowball/
+    note: 'also: AWS DataSync'
+  azure:
+    name: Azure Data Box
+    url: https://azure.microsoft.com/en-us/products/databox/
+  gcp:
+    name: Transfer Appliance
+    url: https://docs.cloud.google.com/transfer-appliance/docs/4.0/overview
+- id: large-scale-data-transfer-solution-exabyte-scale
+  name: Large Scale Data Transfer Solution (Exabyte Scale)
+  verified: '2026-09-21'
+  aws:
+    name: AWS Snowball
+    url: https://aws.amazon.com/snowball/
+    note: Snowmobile deprecated into the Snowball family
+  azure:
+    name: Azure Data Box
+    url: https://azure.microsoft.com/en-us/products/databox/
+    note: up to ~800 TB per job; chain multiple jobs
+  gcp:
+    name: Transfer Appliance
+    url: https://docs.cloud.google.com/transfer-appliance/docs/4.0/overview
+    note: up to ~1 PB per appliance; no exabyte-scale offline product
+- id: database-migration-services
+  name: Database Migration Services
+  verified: '2026-09-21'
+  aws:
+    name: AWS Database Migration Service
+    url: https://aws.amazon.com/dms/
+    note: 'also: AWS Migration Hub'
+  azure:
+    name: Azure Database Migration Service
+    url: https://azure.microsoft.com/en-us/products/database-migration/
+  gcp:
+    name: Database Migration Service
+    url: https://cloud.google.com/database-migration
+- id: server-migration-services
+  name: Server Migration Services
+  verified: '2026-09-21'
+  aws:
+    name: AWS Transform MGN
+    url: https://aws.amazon.com/application-migration-service/
+    note: formerly Server Migration Service
+  azure:
+    name: Site Recovery
+    url: https://learn.microsoft.com/en-us/azure/site-recovery/migrate-overview
+    note: 'also: Azure App Service migration'
+  gcp:
+    name: Migration Center
+    url: https://docs.cloud.google.com/migration-center/docs
+    note: 'formerly Migrate for Compute Engine; also: Migrate to Containers'
+- id: application-discovery-services
+  name: Application Discovery Services
+  verified: '2026-09-21'
+  aws:
+    name: AWS Transform
+    url: https://aws.amazon.com/transform/
+    note: formerly Application Discovery Service
+  azure:
+    name: Microsoft Defender for Cloud Apps
+    url: https://learn.microsoft.com/en-us/defender-cloud-apps/set-up-cloud-discovery
+    note: formerly Cloud App Discovery
+- id: automated-disaster-recovery-services
+  name: Automated Disaster Recovery Services
+  verified: '2026-09-21'
+  aws:
+    name: AWS Disaster Recovery
+    url: https://aws.amazon.com/disaster-recovery/
+    note: 'also: AWS Backup'
+  azure:
+    name: Azure Site Recovery
+    url: https://azure.microsoft.com/en-us/products/site-recovery/
+    note: 'also: Azure Backup'
+  gcp:
+    name: Backup and DR Service
+    url: https://cloud.google.com/backup-disaster-recovery
+    note: 'also: Persistent Disk snapshots'

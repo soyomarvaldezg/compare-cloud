@@ -1,0 +1,104 @@
+category: Application Integration
+description: ''
+services:
+- id: api-management-service
+  name: API Management Service
+  verified: '2026-09-21'
+  aws:
+    name: Amazon API Gateway
+    url: https://aws.amazon.com/api-gateway/
+  azure:
+    name: Azure API Management
+    url: https://azure.microsoft.com/en-us/products/api-management
+  gcp:
+    name: Apigee API Platform
+    url: https://cloud.google.com/apigee
+    note: 'also: API Monitization, API Analytics, Apigee Sense, Cloud Endpoints'
+- id: media-transcoders
+  name: Media Transcoders
+  verified: '2026-09-21'
+  aws:
+    name: AWS Elemental MediaConnect
+    url: https://aws.amazon.com/mediaconnect/
+    note: 'also: AWS Elemental MediaConvert, AWS Elemental MediaLive, AWS Elemental
+      MediaPackage, AWS Elemental MediaStore, AWS Elemental MediaTailor, Amazon Kinesis
+      Video Streams, AWS Elemental Live, AWS Elemental Server, AWS Elemental Conductor,
+      AWS Elemental Link, AWS Elemental Delta'
+  azure:
+    name: Azure Media Services (retired)
+    note: retired 2024; migration via industry partners
+  gcp:
+    name: Transcoder API
+    url: https://docs.cloud.google.com/transcoder/docs
+- id: queuing-services
+  name: Queuing Services
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Simple Queue Service (SQS)
+    url: https://aws.amazon.com/sqs/
+    note: 'also: Amazon MQ'
+  azure:
+    name: Azure Service Bus
+    url: https://azure.microsoft.com/en-us/products/service-bus/
+    note: 'also: Queue Storage, Web PubSub'
+  gcp:
+    name: Cloud Pub/Sub
+    url: https://cloud.google.com/pubsub
+- id: mobile-analytics
+  name: Mobile Analytics
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Pinpoint (sunset 2026)
+    url: https://aws.amazon.com/pinpoint/
+    note: AWS is retiring Pinpoint; use Amazon SES and AWS End User Messaging
+  azure:
+    name: Azure Mobile Engagement (retired)
+    note: retired 2019
+- id: email-services
+  name: Email Services
+  verified: '2026-09-21'
+  aws:
+    name: Amazon SES
+    url: https://aws.amazon.com/ses/
+  azure:
+    name: Azure Communication Services
+    url: https://azure.microsoft.com/en-us/products/communication-services/
+    note: Email, SMS and voice
+- id: notification-services
+  name: Notification Services
+  verified: '2026-09-21'
+  aws:
+    name: Amazon SNS
+    url: https://aws.amazon.com/sns/
+  azure:
+    name: Notification Hubs
+    url: https://azure.microsoft.com/en-us/products/notification-hubs/
+    note: 'also: Service Bus'
+  gcp:
+    name: Firebase Cloud Messaging
+    url: https://firebase.google.com/docs/cloud-messaging/
+- id: blockchain-services
+  name: Blockchain Services
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Managed Blockchain
+    url: https://aws.amazon.com/managed-blockchain/
+    note: 'also: Amazon QLDB (retired 2025)'
+  azure:
+    name: Azure Blockchain (retired)
+    note: retired 2021
+- id: chatbot
+  name: Chatbot
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Lex
+    url: https://aws.amazon.com/lex/
+    note: 'also: Amazon Q Developer in chat (formerly AWS Chatbot)'
+  azure:
+    name: Azure AI Bot Service
+    url: https://azure.microsoft.com/en-us/products/ai-services/ai-bot-service/
+    note: formerly Azure Bot Service
+  gcp:
+    name: Customer Experience Agent Studio
+    url: https://cloud.google.com/gemini-enterprise-cx/cx-agent-studio
+    note: formerly Dialogflow

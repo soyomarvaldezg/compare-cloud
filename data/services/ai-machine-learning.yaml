@@ -1,0 +1,115 @@
+category: AI & Machine Learning
+description: ''
+services:
+- id: language-processing-ai
+  name: Language Processing AI
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Lex
+    url: https://aws.amazon.com/lex/
+    note: 'also: Amazon Comprehend'
+  azure:
+    name: Azure AI Language
+    url: https://azure.microsoft.com/en-us/products/ai-foundry/tools/language
+    note: formerly LUIS / Cognitive Services Language
+  gcp:
+    name: Natural Language API
+    url: https://cloud.google.com/natural-language
+    note: 'also: Cloud Translation API'
+- id: speech-recognition-ai
+  name: Speech Recognition AI
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Transcribe
+    url: https://aws.amazon.com/transcribe/
+    note: speech-to-text; the seed listed Polly, which is text-to-speech
+  azure:
+    name: Azure Speech
+    url: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview
+    note: formerly Cognitive Services Speech
+  gcp:
+    name: Cloud Speech-to-Text
+    url: https://cloud.google.com/speech-to-text
+    note: 'also: Speech API'
+- id: image-recognition-ai
+  name: Image Recognition AI
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Rekognition
+    url: https://aws.amazon.com/rekognition/
+  azure:
+    name: Azure AI Vision
+    url: https://azure.microsoft.com/en-us/products/ai-foundry/tools/vision
+    note: in Foundry Tools; replaces retired Cognitive Services vision APIs
+  gcp:
+    name: Vision AI
+    url: https://cloud.google.com/vision
+    note: 'also: Cloud Video Intelligence'
+- id: machine-learning
+  name: Machine Learning
+  verified: '2026-09-21'
+  aws:
+    name: Amazon SageMaker
+    url: https://aws.amazon.com/sagemaker/
+    note: replaces Amazon Machine Learning (retired)
+  azure:
+    name: Azure Machine Learning
+    url: https://azure.microsoft.com/en-us/products/machine-learning
+    note: classic ML Studio retired 2024
+  gcp:
+    name: Colab Enterprise
+    url: https://cloud.google.com/colab
+    note: successor to Cloud Datalab
+- id: machine-learning-frameworks
+  name: Machine Learning Frameworks
+  verified: '2026-09-21'
+  aws:
+    name: TensorFlow on AWS
+    url: https://aws.amazon.com/tensorflow/
+    note: 'also: PyTorch on AWS, JAX'
+  gcp:
+    name: Gemini Enterprise Agent Platform
+    url: https://cloud.google.com/products/gemini-enterprise-agent-platform
+    note: formerly Vertex AI
+- id: business-analysis
+  name: Business analysis
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Forecast
+    url: https://aws.amazon.com/forecast/
+    note: 'also: Amazon Fraud Detector, Amazon Lookout for Metrics, Amazon Augmented
+      AI (Amazon A2I), Amazon Personalize'
+  azure:
+    name: Azure Analysis Services
+    url: https://learn.microsoft.com/en-us/analysis-services/azure-analysis-services/?view=sql-analysis-services-2025
+    note: 'also: Azure Metrics Advisor'
+  gcp:
+    name: BigQuery
+    url: https://cloud.google.com/bigquery
+    note: predictive analysis via BigQuery ML
+- id: machine-learning-inference
+  name: Machine Learning Inference
+  verified: '2026-09-21'
+  aws:
+    name: Amazon SageMaker
+    url: https://aws.amazon.com/sagemaker/ai/deploy/
+    note: replaces Elastic Inference (retired)
+  gcp:
+    name: Gemini Enterprise Agent Platform
+    url: https://cloud.google.com/products/gemini-enterprise-agent-platform
+    note: formerly Vertex AI prediction
+- id: intelligent-search-search-with-ml
+  name: Intelligent Search / Search with ML
+  verified: '2026-09-21'
+  aws:
+    name: Amazon Q Business
+    url: https://aws.amazon.com/q/business/
+    note: Kendra's capabilities are now part of Amazon Q Business; Kendra itself remains
+      for existing customers
+  azure:
+    name: Azure AI Search
+    url: https://learn.microsoft.com/en-us/azure/search/
+  gcp:
+    name: Vertex AI Vector Search
+    url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview
+    note: formerly Matching Engine
