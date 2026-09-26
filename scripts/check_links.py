@@ -1,4 +1,4 @@
-"""Staleness detector: check every service URL in data/services/*.yaml.
+"""Staleness detector: check every service URL in data/services/*.yaml and data/platforms/*.yaml.
 
 Classifies each link as OK, REDIRECTED (docs moved or product renamed — the
 final URL/title usually reveal the new name), BROKEN (4xx/5xx), or ERROR.
@@ -20,7 +20,8 @@ from typing import Any
 
 import yaml
 
-PROVIDERS = ["aws", "azure", "gcp"]
+from build import SECTIONS
+
 USER_AGENT = "compare-cloud-link-checker/0.1 (+https://github.com/soyomarvaldezg/compare-cloud)"
 TIMEOUT = 20
 ATTEMPTS = 2
@@ -28,13 +29,15 @@ CONCURRENCY = 8
 RETRYABLE = {429, 500, 502, 503, 504}
 
 
-def collect_urls(data_dir: Path) -> list[dict[str, str]]:
+def collect_urls(data_root: Path) -> list[dict[str, str]]:
     targets: list[dict[str, str]] = []
-    for path in sorted(data_dir.glob("*.yaml")):
+    for section, path in (
+        (section, path) for section in SECTIONS for path in sorted((data_root / section["dir"]).glob("*.yaml"))
+    ):
         doc = yaml.safe_load(path.read_text())
         category = doc.get("category", path.stem)
         for service in doc.get("services", []):
-            for provider in PROVIDERS:
+            for provider in section["providers"]:
                 entry: Any = service.get(provider)
                 if isinstance(entry, dict) and entry.get("url"):
                     targets.append(
@@ -105,13 +108,13 @@ def classify(result: dict[str, Any]) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data-dir", type=Path, default=Path("data/services"))
+    parser.add_argument("--data-root", type=Path, default=Path("data"))
     parser.add_argument("--report", type=Path, help="write a markdown report to this path")
     parser.add_argument("--limit", type=int, help="check only the first N URLs (testing)")
     parser.add_argument("--no-fail", action="store_true", help="always exit 0")
     args = parser.parse_args()
 
-    targets = collect_urls(args.data_dir)
+    targets = collect_urls(args.data_root)
     if args.limit:
         targets = targets[: args.limit]
 

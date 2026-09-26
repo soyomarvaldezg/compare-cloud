@@ -1,0 +1,116 @@
+category: Data Engineering
+description: ''
+services:
+- id: platform-ingestion-connectors
+  name: Managed ingestion connectors
+  verified: '2026-09-26'
+  databricks:
+    name: Lakeflow Connect
+    url: https://docs.databricks.com/aws/en/ingestion/lakeflow-connect/
+  fabric:
+    name: Copy job (Data Factory)
+    url: https://learn.microsoft.com/en-us/fabric/data-factory/what-is-copy-job
+  snowflake:
+    name: Snowflake Openflow
+    url: https://docs.snowflake.com/en/user-guide/data-integration/openflow/about
+- id: platform-database-replication
+  name: Database replication / CDC
+  verified: '2026-09-26'
+  databricks:
+    name: Lakeflow Connect
+    url: https://docs.databricks.com/aws/en/ingestion/lakeflow-connect/
+    note: database connectors (SQL Server, PostgreSQL, MySQL)
+  fabric:
+    name: Mirroring
+    url: https://learn.microsoft.com/en-us/fabric/mirroring/overview
+  snowflake:
+    name: Snowflake Openflow CDC connectors
+    url: https://docs.snowflake.com/en/user-guide/data-integration/openflow/connectors/about-openflow-connectors
+- id: platform-declarative-pipelines
+  name: Declarative / incremental ETL
+  verified: '2026-09-26'
+  databricks:
+    name: Lakeflow pipelines
+    url: https://docs.databricks.com/aws/en/ldp/
+    note: formerly Delta Live Tables (DLT)
+  fabric:
+    name: Materialized lake views
+    url: https://learn.microsoft.com/en-us/fabric/data-engineering/materialized-lake-views/overview-materialized-lake-view
+    note: PySpark authoring in preview
+  snowflake:
+    name: Dynamic Tables
+    url: https://docs.snowflake.com/en/user-guide/dynamic-tables/overview
+- id: platform-orchestration
+  name: Workflow orchestration
+  verified: '2026-09-26'
+  databricks:
+    name: Lakeflow Jobs
+    url: https://docs.databricks.com/aws/en/jobs/
+    note: formerly Databricks Workflows
+  fabric:
+    name: Pipelines (Data Factory)
+    url: https://learn.microsoft.com/en-us/fabric/data-factory/pipeline-overview
+  snowflake:
+    name: Tasks and task graphs
+    url: https://docs.snowflake.com/en/user-guide/tasks-intro
+- id: platform-low-code-etl
+  name: Visual / low-code transformations
+  verified: '2026-09-26'
+  databricks:
+    name: Lakeflow Designer
+    url: https://docs.databricks.com/aws/en/designer/
+  fabric:
+    name: Dataflow Gen2
+    url: https://learn.microsoft.com/en-us/fabric/data-factory/dataflows-gen2-overview
+- id: platform-streaming-ingest
+  name: Streaming ingestion
+  verified: '2026-09-26'
+  databricks:
+    name: Zerobus Ingest
+    url: https://docs.databricks.com/aws/en/ingestion/zerobus-overview
+  fabric:
+    name: Eventstreams
+    url: https://learn.microsoft.com/en-us/fabric/real-time-intelligence/event-streams/overview
+    note: part of Real-Time Intelligence
+  snowflake:
+    name: Snowpipe Streaming
+    url: https://docs.snowflake.com/en/user-guide/snowpipe-streaming/data-load-snowpipe-streaming-overview
+- id: platform-dbt
+  name: Native dbt support
+  verified: '2026-09-26'
+  databricks:
+    name: dbt task for Lakeflow Jobs
+    url: https://docs.databricks.com/aws/en/jobs/tasks/dbt
+  fabric:
+    name: dbt job
+    url: https://learn.microsoft.com/en-us/fabric/data-factory/dbt-job-overview
+    note: preview
+  snowflake:
+    name: dbt Projects on Snowflake
+    url: https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects-on-snowflake
+- id: platform-ci-cd
+  name: CI/CD and infrastructure as code
+  verified: '2026-09-26'
+  databricks:
+    name: Declarative Automation Bundles
+    url: https://docs.databricks.com/aws/en/dev-tools/bundles/
+    note: formerly Databricks Asset Bundles
+  fabric:
+    name: Git integration and deployment pipelines
+    url: https://learn.microsoft.com/en-us/fabric/cicd/cicd-overview
+  snowflake:
+    name: DCM Projects
+    url: https://docs.snowflake.com/en/user-guide/dcm-projects/dcm-projects-overview
+    note: 'also: Snowflake CLI'
+- id: platform-warehouse-migration
+  name: Warehouse migration tooling
+  verified: '2026-09-26'
+  databricks:
+    name: Lakebridge
+    url: https://databrickslabs.github.io/lakebridge/
+  fabric:
+    name: Migration Assistant for Fabric Data Warehouse
+    url: https://learn.microsoft.com/en-us/fabric/data-warehouse/migration-assistant
+  snowflake:
+    name: SnowConvert AI
+    url: https://docs.snowflake.com/en/migrations/snowconvert-docs/general/about

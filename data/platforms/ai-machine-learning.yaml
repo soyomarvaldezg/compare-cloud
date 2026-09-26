@@ -1,0 +1,108 @@
+category: AI and Machine Learning
+description: ''
+services:
+- id: platform-notebooks
+  name: Notebooks
+  verified: '2026-09-26'
+  databricks:
+    name: Databricks notebooks
+    url: https://docs.databricks.com/aws/en/notebooks/
+  fabric:
+    name: Fabric notebooks
+    url: https://learn.microsoft.com/en-us/fabric/data-engineering/how-to-use-notebook
+  snowflake:
+    name: Notebooks in Workspaces
+    url: https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks-in-workspaces/notebooks-in-workspaces-overview
+- id: platform-ml-lifecycle
+  name: ML experiment tracking and model registry
+  verified: '2026-09-26'
+  databricks:
+    name: MLflow on Databricks
+    url: https://docs.databricks.com/aws/en/mlflow/
+  fabric:
+    name: ML experiments and ML models
+    url: https://learn.microsoft.com/en-us/fabric/data-science/machine-learning-experiment
+    note: MLflow-based
+  snowflake:
+    name: Snowflake Model Registry
+    url: https://docs.snowflake.com/en/developer-guide/snowflake-ml/model-registry/overview
+- id: platform-feature-store
+  name: Feature store
+  verified: '2026-09-26'
+  databricks:
+    name: Databricks Feature Store
+    url: https://docs.databricks.com/aws/en/machine-learning/feature-store/
+    note: feature tables in Unity Catalog
+  snowflake:
+    name: Snowflake Feature Store
+    url: https://docs.snowflake.com/en/developer-guide/snowflake-ml/feature-store/overview
+- id: platform-model-serving
+  name: Model serving and hosted LLMs
+  verified: '2026-09-26'
+  databricks:
+    name: Model Serving
+    url: https://docs.databricks.com/aws/en/machine-learning/model-serving/
+    note: includes Foundation Model APIs
+  fabric:
+    name: Foundry Tools in Fabric
+    url: https://learn.microsoft.com/en-us/fabric/data-science/ai-services/ai-services-overview
+    note: preview; model hosting lives in Microsoft Foundry
+  snowflake:
+    name: Cortex REST API
+    url: https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-rest-api
+- id: platform-ai-sql-functions
+  name: AI functions in SQL
+  verified: '2026-09-26'
+  databricks:
+    name: AI Functions
+    url: https://docs.databricks.com/aws/en/large-language-models/ai-functions
+  fabric:
+    name: AI Functions
+    url: https://learn.microsoft.com/en-us/fabric/data-science/ai-functions/overview
+    note: T-SQL version in preview
+  snowflake:
+    name: Cortex AI Functions
+    url: https://docs.snowflake.com/en/user-guide/snowflake-cortex/aisql
+    note: formerly Cortex AISQL
+- id: platform-vector-search
+  name: Vector / hybrid search for RAG
+  verified: '2026-09-26'
+  databricks:
+    name: Databricks AI Search
+    url: https://docs.databricks.com/aws/en/ai-search/ai-search
+    note: formerly Vector Search
+  fabric:
+    name: Eventhouse vector database
+    url: https://learn.microsoft.com/en-us/fabric/real-time-intelligence/vector-database
+    note: vector only, no managed hybrid search
+  snowflake:
+    name: Cortex Search
+    url: https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview
+- id: platform-agents
+  name: AI agents
+  verified: '2026-09-26'
+  databricks:
+    name: Agent Bricks
+    url: https://docs.databricks.com/aws/en/agents/
+    note: formerly Mosaic AI Agent Framework
+  fabric:
+    name: Fabric data agent
+    url: https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent
+    note: data Q&A; custom agents in Microsoft Foundry
+  snowflake:
+    name: Cortex Agents
+    url: https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents
+- id: platform-coding-assistant
+  name: AI coding assistant
+  verified: '2026-09-26'
+  databricks:
+    name: Genie Code
+    url: https://docs.databricks.com/aws/en/notebooks/code-assistant
+    note: formerly Databricks Assistant
+  fabric:
+    name: Copilot in Fabric
+    url: https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview
+  snowflake:
+    name: Snowflake CoCo
+    url: https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code
+    note: formerly Cortex Code

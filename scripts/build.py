@@ -1,4 +1,4 @@
-"""Validate data/services/*.yaml and render the static site into site/.
+"""Validate data/services/*.yaml and data/platforms/*.yaml and render the static site into site/.
 
 Run: uv run python scripts/build.py [--strict]
 Exit code 1 on validation errors, or on stale rows when --strict is passed.
@@ -13,9 +13,28 @@ from typing import Any
 
 import yaml
 
-PROVIDERS = ["aws", "azure", "gcp"]
-PROVIDER_LABELS = {"aws": "AWS", "azure": "Azure", "gcp": "Google Cloud"}
-PROVIDER_COLORS = {"aws": "#ff9900", "azure": "#0078d4", "gcp": "#34a853"}
+PROVIDER_LABELS = {
+    "aws": "AWS",
+    "azure": "Azure",
+    "gcp": "Google Cloud",
+    "databricks": "Databricks",
+    "fabric": "Microsoft Fabric",
+    "snowflake": "Snowflake",
+}
+PROVIDER_COLORS = {
+    "aws": "#ff9900",
+    "azure": "#0078d4",
+    "gcp": "#34a853",
+    "databricks": "#ff3621",
+    "fabric": "#117865",
+    "snowflake": "#29b5e8",
+}
+
+# Each section is one comparison table family: its own data directory and its own columns.
+SECTIONS = [
+    {"key": "clouds", "title": "Cloud providers", "dir": "services", "providers": ["aws", "azure", "gcp"]},
+    {"key": "platforms", "title": "Data platforms", "dir": "platforms", "providers": ["databricks", "fabric", "snowflake"]},
+]
 
 STYLE = """
 :root {
@@ -164,6 +183,19 @@ footer {
 footer p { margin: 0 0 .7rem; max-width: 46rem; }
 footer a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--rule); }
 footer a:hover { border-bottom-color: var(--link); }
+.group { margin-top: 3rem; }
+.group-title {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .75rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--rule-solid);
+}
+.group-title .note { letter-spacing: 0; text-transform: none; margin-left: .5rem; }
+.chip-sep { width: 1px; height: 1rem; background: var(--rule-solid); }
 .hidden { display: none !important; }
 .empty { color: var(--soft); padding: 3rem 0; text-align: center; font-style: italic; }
 """
@@ -173,6 +205,7 @@ APP_JS = """
   var search = document.getElementById("search");
   var chips = Array.prototype.slice.call(document.querySelectorAll(".chip"));
   var rows = Array.prototype.slice.call(document.querySelectorAll("tbody tr[data-search]"));
+  var groups = Array.prototype.slice.call(document.querySelectorAll(".group"));
   var count = document.getElementById("count");
   var active = "all";
 
@@ -191,6 +224,9 @@ APP_JS = """
       if (!section) return;
       var any = section.querySelector("tbody tr:not(.hidden)");
       section.classList.toggle("hidden", !any);
+    });
+    groups.forEach(function (group) {
+      group.classList.toggle("hidden", !group.querySelector("section:not(.hidden)"));
     });
     count.textContent = visible + " of " + rows.length + " services";
   }
@@ -228,10 +264,19 @@ def load_categories(data_dir: Path) -> list[dict[str, Any]]:
     return categories
 
 
-def validate(categories: list[dict[str, Any]]) -> list[str]:
+def load_sections(data_root: Path) -> list[dict[str, Any]]:
+    return [
+        {**section, "categories": load_categories(data_root / section["dir"])}
+        for section in SECTIONS
+    ]
+
+
+def validate(sections: list[dict[str, Any]]) -> list[str]:
     errors: list[str] = []
     seen_ids: set[str] = set()
-    for doc in categories:
+    for doc, providers in (
+        (doc, section["providers"]) for section in sections for doc in section["categories"]
+    ):
         category = doc["category"]
         for service in doc["services"]:
             where = f"{category}/{service.get('id', '?')}"
@@ -252,9 +297,12 @@ def validate(categories: list[dict[str, Any]]) -> list[str]:
                     datetime.date.fromisoformat(str(verified))
                 except ValueError:
                     errors.append(f"{where}: verified date must be ISO (YYYY-MM-DD)")
-            present = [p for p in PROVIDERS if service.get(p)]
+            present = [p for p in providers if service.get(p)]
             if not present:
-                errors.append(f"{where}: no provider entry (need at least one of aws/azure/gcp)")
+                errors.append(f"{where}: no provider entry (need at least one of {'/'.join(providers)})")
+            for key in service:
+                if key in PROVIDER_LABELS and key not in providers:
+                    errors.append(f"{where}: provider '{key}' does not belong in this section")
             for p in present:
                 entry: Any = service[p]
                 if not isinstance(entry, dict) or not entry.get("name"):
@@ -301,7 +349,35 @@ def provider_cell(service: dict[str, Any], provider: str) -> str:
     return f"<td>{cell}</td>"
 
 
-def render(categories: list[dict[str, Any]], out_dir: Path, max_age_days: int) -> None:
+def render_category(doc: dict[str, Any], providers: list[str]) -> str:
+    rows = []
+    for service in doc["services"]:
+        providers_attr = " ".join(p for p in providers if service.get(p))
+        search_blob = esc(
+            " ".join(
+                [service["name"]]
+                + [service[p]["name"] for p in providers if service.get(p)]
+            ).lower()
+        )
+        rows.append(
+            f'<tr data-providers="{providers_attr}" data-search="{search_blob}">'
+            f'<td class="cap">{esc(service["name"])}</td>'
+            + "".join(provider_cell(service, p) for p in providers)
+            + f'<td class="verified">{esc(service["verified"])}</td>'
+            + "</tr>"
+        )
+    header = "".join(f"<th>{esc(PROVIDER_LABELS[p])}</th>" for p in providers)
+    return (
+        f'<section id="{slugify(doc["category"])}">'
+        f"<h2>{esc(doc['category'])} <span class=\"note\">({len(doc['services'])})</span></h2>"
+        '<div class="tablewrap"><table>'
+        f"<thead><tr><th>Capability</th>{header}<th>Verified</th></tr></thead>"
+        f"<tbody>{''.join(rows)}</tbody></table></div></section>"
+    )
+
+
+def render(sections: list[dict[str, Any]], out_dir: Path, max_age_days: int) -> None:
+    categories = [doc for section in sections for doc in section["categories"]]
     total = sum(len(d["services"]) for d in categories)
     oldest = min(
         str(s["verified"]) for d in categories for s in d["services"]
@@ -309,38 +385,25 @@ def render(categories: list[dict[str, Any]], out_dir: Path, max_age_days: int) -
     stale = stale_rows(categories, max_age_days)
 
     chips = ['<button class="chip active" data-provider="all">All</button>']
-    for p in PROVIDERS:
-        chips.append(
-            f'<button class="chip" data-provider="{p}">'
-            f'<span class="dot" style="background:{PROVIDER_COLORS[p]}"></span>{PROVIDER_LABELS[p]}</button>'
-        )
+    for i, section in enumerate(sections):
+        if i:
+            chips.append('<span class="chip-sep" aria-hidden="true"></span>')
+        for p in section["providers"]:
+            chips.append(
+                f'<button class="chip" data-provider="{p}">'
+                f'<span class="dot" style="background:{PROVIDER_COLORS[p]}"></span>{PROVIDER_LABELS[p]}</button>'
+            )
     chips_html = "".join(chips)
 
-    sections = []
-    for doc in categories:
-        rows = []
-        for service in doc["services"]:
-            providers_attr = " ".join(p for p in PROVIDERS if service.get(p))
-            search_blob = esc(
-                " ".join(
-                    [service["name"]]
-                    + [service[p]["name"] for p in PROVIDERS if service.get(p)]
-                ).lower()
-            )
-            rows.append(
-                f'<tr data-providers="{providers_attr}" data-search="{search_blob}">'
-                f'<td class="cap">{esc(service["name"])}</td>'
-                + "".join(provider_cell(service, p) for p in PROVIDERS)
-                + f'<td class="verified">{esc(service["verified"])}</td>'
-                + "</tr>"
-            )
-        rows_html = "".join(rows)
-        sections.append(
-            f'<section id="{slugify(doc["category"])}">'
-            f"<h2>{esc(doc['category'])} <span class=\"note\">({len(doc['services'])})</span></h2>"
-            '<div class="tablewrap"><table>'
-            "<thead><tr><th>Capability</th><th>AWS</th><th>Azure</th><th>Google Cloud</th><th>Verified</th></tr></thead>"
-            f"<tbody>{rows_html}</tbody></table></div></section>"
+    groups = []
+    for section in sections:
+        count = sum(len(d["services"]) for d in section["categories"])
+        groups.append(
+            f'<div class="group" id="{section["key"]}">'
+            f'<h2 class="group-title">{esc(section["title"])} '
+            f'<span class="note">{" · ".join(PROVIDER_LABELS[p] for p in section["providers"])} ({count})</span></h2>'
+            + "".join(render_category(doc, section["providers"]) for doc in section["categories"])
+            + "</div>"
         )
 
     stale_note = (
@@ -355,8 +418,8 @@ def render(categories: list[dict[str, Any]], out_dir: Path, max_age_days: int) -
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Compare Cloud — AWS vs Azure vs Google Cloud</title>
-<meta name="description" content="An open, community-verified mapping of equivalent managed services across AWS, Azure and Google Cloud.">
+<title>Compare Cloud — AWS vs Azure vs Google Cloud, plus data platforms</title>
+<meta name="description" content="An open, community-verified mapping of equivalent managed services across AWS, Azure and Google Cloud, and across the Databricks, Microsoft Fabric and Snowflake data platforms.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -364,18 +427,18 @@ def render(categories: list[dict[str, Any]], out_dir: Path, max_age_days: int) -
 </head>
 <body>
 <header class="masthead">
-  <p class="eyebrow">Open source · Community verified · AWS / Azure / Google Cloud</p>
+  <p class="eyebrow">Open source · Community verified · AWS / Azure / Google Cloud · Databricks / Fabric / Snowflake</p>
   <h1>Compare Cloud<span class="accent-dot">.</span></h1>
-  <p class="standfirst">Equivalent managed services across the three major clouds — mapped in plain YAML, re-verified monthly by an automated link checker, and corrected in the open.</p>
+  <p class="standfirst">Equivalent managed services across the three major clouds and the three major data platforms — mapped in plain YAML, re-verified monthly by an automated link checker, and corrected in the open.</p>
   <p class="byline">Maintained by <a href="https://github.com/soyomarvaldezg" target="_blank" rel="noopener">@soyomarvaldezg</a><span class="sep">·</span><a href="https://links.soyomarvaldezg.com" target="_blank" rel="noopener">links.soyomarvaldezg.com</a><span class="sep">·</span><a href="https://github.com/soyomarvaldezg/compare-cloud" target="_blank" rel="noopener">source &amp; data</a></p>
 </header>
 <div class="controls">
-  <input id="search" type="search" placeholder="Search services — try “queue”, “kubernetes”, “blob”…" aria-label="Search services">
+  <input id="search" type="search" placeholder="Search services — try “queue”, “kubernetes”, “warehouse”…" aria-label="Search services">
   {chips_html}
   <span id="count"></span>
 </div>
 <main>
-{chr(10).join(sections)}
+{chr(10).join(groups)}
 <p class="empty hidden">No services match your search.</p>
 </main>
 <footer>
@@ -396,21 +459,22 @@ def render(categories: list[dict[str, Any]], out_dir: Path, max_age_days: int) -
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data-dir", type=Path, default=Path("data/services"))
+    parser.add_argument("--data-root", type=Path, default=Path("data"))
     parser.add_argument("--out", type=Path, default=Path("site"))
     parser.add_argument("--max-age-days", type=int, default=180)
     parser.add_argument("--strict", action="store_true", help="exit 1 if any row is stale")
     args = parser.parse_args()
 
-    categories = load_categories(args.data_dir)
-    errors = validate(categories)
+    sections = load_sections(args.data_root)
+    errors = validate(sections)
     if errors:
         for e in errors:
             print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
 
+    categories = [doc for section in sections for doc in section["categories"]]
     stale = stale_rows(categories, args.max_age_days)
-    render(categories, args.out, args.max_age_days)
+    render(sections, args.out, args.max_age_days)
 
     if args.strict and stale:
         print(f"--strict: {len(stale)} stale rows exceed {args.max_age_days} days", file=sys.stderr)
