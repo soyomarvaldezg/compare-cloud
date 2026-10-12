@@ -1,0 +1,66 @@
+category: Governance, Sharing and Apps
+description: ''
+services:
+- id: platform-governance-catalog
+  name: Governance catalog and lineage
+  verified: '2026-09-26'
+  databricks:
+    name: Unity Catalog
+    url: https://docs.databricks.com/aws/en/data-governance/unity-catalog/
+  fabric:
+    name: OneLake catalog
+    url: https://learn.microsoft.com/en-us/fabric/governance/onelake-catalog-overview
+    note: 'also: Microsoft Purview'
+  snowflake:
+    name: Snowflake Horizon Catalog
+    url: https://docs.snowflake.com/en/user-guide/snowflake-horizon
+- id: platform-data-sharing
+  name: Cross-organization data sharing
+  verified: '2026-09-26'
+  databricks:
+    name: OpenSharing
+    url: https://docs.databricks.com/aws/en/opensharing
+    note: formerly Delta Sharing
+  fabric:
+    name: External data sharing
+    url: https://learn.microsoft.com/en-us/fabric/governance/external-data-sharing-overview
+    note: Fabric tenant to Fabric tenant
+  snowflake:
+    name: Secure Data Sharing
+    url: https://docs.snowflake.com/en/user-guide/data-sharing-intro
+- id: platform-marketplace
+  name: Data marketplace
+  verified: '2026-09-26'
+  databricks:
+    name: Databricks Marketplace
+    url: https://docs.databricks.com/aws/en/marketplace/
+  snowflake:
+    name: Snowflake Marketplace
+    url: https://docs.snowflake.com/en/collaboration/collaboration-marketplace-about
+- id: platform-oltp-database
+  name: Managed OLTP database
+  verified: '2026-09-26'
+  databricks:
+    name: Lakebase Postgres
+    url: https://docs.databricks.com/aws/en/oltp/projects
+  fabric:
+    name: SQL database in Fabric
+    url: https://learn.microsoft.com/en-us/fabric/database/sql/overview
+    note: Azure SQL engine; also Cosmos DB in Fabric
+  snowflake:
+    name: Snowflake Postgres
+    url: https://docs.snowflake.com/en/user-guide/snowflake-postgres/about
+- id: platform-app-hosting
+  name: Data app hosting
+  verified: '2026-09-26'
+  databricks:
+    name: Databricks Apps
+    url: https://docs.databricks.com/aws/en/dev-tools/databricks-apps/
+  fabric:
+    name: Fabric Apps
+    url: https://learn.microsoft.com/en-us/fabric/apps/overview
+    note: preview
+  snowflake:
+    name: Streamlit in Snowflake
+    url: https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit
+    note: 'also: Snowpark Container Services'

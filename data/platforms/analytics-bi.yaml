@@ -1,0 +1,83 @@
+category: Analytics and BI
+description: ''
+services:
+- id: platform-sql-warehouse
+  name: SQL data warehouse
+  verified: '2026-09-26'
+  databricks:
+    name: Databricks SQL
+    url: https://docs.databricks.com/aws/en/sql/
+  fabric:
+    name: Fabric Data Warehouse
+    url: https://learn.microsoft.com/en-us/fabric/data-warehouse/data-warehousing
+  snowflake:
+    name: Virtual warehouses
+    url: https://docs.snowflake.com/en/user-guide/warehouses-overview
+- id: platform-open-table-storage
+  name: Lake storage and open table formats
+  verified: '2026-09-26'
+  databricks:
+    name: Delta Lake
+    url: https://docs.databricks.com/aws/en/delta/
+    note: 'also: managed Apache Iceberg tables'
+  fabric:
+    name: OneLake
+    url: https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview
+    note: Delta Lake format
+  snowflake:
+    name: Apache Iceberg tables
+    url: https://docs.snowflake.com/en/user-guide/tables-iceberg
+- id: platform-real-time-analytics
+  name: Low-latency / real-time analytics
+  verified: '2026-09-26'
+  databricks:
+    name: Real-time mode (Structured Streaming)
+    url: https://docs.databricks.com/aws/en/structured-streaming/real-time/concepts
+  fabric:
+    name: Eventhouse
+    url: https://learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse
+    note: part of Real-Time Intelligence
+  snowflake:
+    name: Interactive warehouses and tables
+    url: https://docs.snowflake.com/en/user-guide/interactive
+- id: platform-bi-dashboards
+  name: BI dashboards
+  verified: '2026-09-26'
+  databricks:
+    name: AI/BI Dashboards
+    url: https://docs.databricks.com/aws/en/dashboards/
+  fabric:
+    name: Power BI
+    url: https://learn.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview
+  snowflake:
+    name: Snowsight dashboards
+    url: https://docs.snowflake.com/en/user-guide/ui-snowsight-dashboards
+    note: basic charts, not a full BI tool
+- id: platform-semantic-layer
+  name: Semantic / metrics layer
+  verified: '2026-09-26'
+  databricks:
+    name: Unity Catalog metric views
+    url: https://docs.databricks.com/aws/en/uc-semantics/metric-views
+  fabric:
+    name: Semantic models
+    url: https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand
+    note: formerly Power BI datasets
+  snowflake:
+    name: Semantic views
+    url: https://docs.snowflake.com/en/user-guide/views-semantic/overview
+- id: platform-nl-data-qa
+  name: Natural-language Q&A over data
+  verified: '2026-09-26'
+  databricks:
+    name: Genie
+    url: https://docs.databricks.com/aws/en/genie/
+    note: formerly AI/BI Genie; Genie Spaces are now Genie Agents
+  fabric:
+    name: Fabric data agent
+    url: https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent
+    note: 'also: Copilot in Power BI'
+  snowflake:
+    name: Snowflake CoWork
+    url: https://docs.snowflake.com/en/user-guide/snowflake-cortex/snowflake-cowork
+    note: formerly Snowflake Intelligence

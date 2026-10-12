@@ -1,6 +1,6 @@
 # Compare Cloud
 
-An open, up-to-date mapping of equivalent managed services across **AWS**, **Microsoft Azure**, and **Google Cloud**.
+An open, up-to-date mapping of equivalent managed services across **AWS**, **Microsoft Azure**, and **Google Cloud** — plus a second table comparing the data platforms **Databricks**, **Microsoft Fabric**, and **Snowflake**.
 
 Live site: https://soyomarvaldezg.github.io/compare-cloud/
 
@@ -18,7 +18,8 @@ The classic reference for this, [CloudComparer](https://github.com/ilyas-it83/Cl
 ## Repository layout
 
 ```
-data/services/*.yaml      the mapping — one file per category (the source of truth)
+data/services/*.yaml      cloud mapping (AWS / Azure / GCP) — one file per category (the source of truth)
+data/platforms/*.yaml     data platform mapping (Databricks / Fabric / Snowflake), same format
 scripts/build.py          validates the YAML and renders the static site into site/
 scripts/check_links.py    staleness detector: checks every URL, reports redirects/breakage
 scripts/convert_cloudcomparer.py  one-time seed from CloudComparer (MIT), kept for provenance
@@ -44,10 +45,12 @@ services:
       url: https://cloud.google.com/compute/
 ```
 
-Rules enforced by the build: unique `id` per service, ISO `verified` date, at least one provider, `https://` URLs.
+Files under `data/platforms/` use the same format with `databricks`, `fabric` and `snowflake` keys instead of `aws`, `azure` and `gcp`. Sections and their providers are declared in `SECTIONS` at the top of `scripts/build.py` — adding a new comparison table is one entry there plus a data directory.
+
+Rules enforced by the build: unique `id` per service, ISO `verified` date, at least one provider, only the providers of that section, `https://` URLs.
 
 ## How to contribute a correction
-1. Find the service in `data/services/<category>.yaml`.
+1. Find the service in `data/services/<category>.yaml` (or `data/platforms/<category>.yaml`).
 2. Edit the name/URL and bump `verified` to today.
 3. Open a pull request — that's it. CI re-validates and redeploys.
 
