@@ -4,3 +4,5 @@ site/
 .crush/
 .DS_Store
 staleness-report.md
+notes.md
+AGENTS.md
