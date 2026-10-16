@@ -52,6 +52,20 @@ services:
   gcp:
     name: Cloud Dataflow
     url: https://cloud.google.com/products/dataflow
+- id: managed-apache-kafka
+  name: Managed Apache Kafka
+  verified: '2026-10-12'
+  aws:
+    name: Amazon Managed Streaming for Apache Kafka
+    url: https://aws.amazon.com/msk/
+  azure:
+    name: Azure Event Hubs
+    url: https://azure.microsoft.com/en-us/products/event-hubs/
+    note: 'Kafka-protocol endpoint; also: HDInsight Kafka'
+  gcp:
+    name: Managed Service for Apache Kafka
+    url: https://cloud.google.com/products/managed-service-for-apache-kafka
+    note: formerly Apache Kafka for BigQuery
 - id: data-warehouse
   name: Data Warehouse
   verified: '2026-09-21'
