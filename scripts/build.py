@@ -7,6 +7,7 @@ Exit code 1 on validation errors, or on stale rows when --strict is passed.
 import argparse
 import datetime
 import re
+import shutil
 import sys
 from pathlib import Path
 from typing import Any
@@ -30,6 +31,8 @@ PROVIDER_COLORS = {
     "snowflake": "#29b5e8",
 }
 
+ASSETS_DIR = Path(__file__).resolve().parent.parent / "assets"
+
 # Each section is one comparison table family: its own data directory and its own columns.
 SECTIONS = [
     {"key": "clouds", "title": "Cloud providers", "dir": "services", "providers": ["aws", "azure", "gcp"]},
@@ -37,50 +40,64 @@ SECTIONS = [
 ]
 
 STYLE = """
+@font-face {
+  font-family: "VD Code";
+  src: url("assets/fonts/SourceCodePro.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "VD Sans";
+  src: url("assets/fonts/DMSans.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
 :root {
-  --paper: #f5f5f5;
-  --paper-2: #ececec;
-  --ink: #2d3142;
-  --muted: #4f5d75;
-  --soft: #7a8399;
-  --rule: rgba(45, 49, 66, 0.12);
-  --rule-solid: #bfc0c0;
-  --accent: #eb6c36;
-  --link: #2e5aa8;
+  --paper: #cfdde6;
+  --paper-2: #e6edf2;
+  --ink: #2d3141;
+  --muted: #4a5670;
+  --soft: #4a5670;
+  --rule: rgba(45, 49, 65, 0.16);
+  --rule-solid: #657486;
+  --accent: #08829c;
+  --link: #05657a;
 }
 * { box-sizing: border-box; }
 html { -webkit-font-smoothing: antialiased; }
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "VD Sans", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.125rem;
   background: var(--paper);
   color: var(--ink);
-  line-height: 1.55;
+  line-height: 1.6;
 }
-.serif { font-family: "Instrument Serif", Georgia, "Times New Roman", serif; }
+.serif { font-family: "VD Code", "Source Code Pro", ui-monospace, monospace; }
 header.masthead {
   max-width: 1080px;
   margin: 0 auto;
   padding: 3.5rem 1.5rem 2rem;
 }
 .eyebrow {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: "VD Code", "Source Code Pro", ui-monospace, monospace;
   font-size: .7rem;
-  letter-spacing: .18em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--soft);
   margin: 0 0 .9rem;
 }
 h1 {
-  font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: 3.2rem;
+  font-family: "VD Code", "Source Code Pro", ui-monospace, monospace;
+  font-weight: 600;
+  font-size: clamp(2rem, 5.2vw, 3rem);
   line-height: 1.05;
   margin: 0 0 .6rem;
+  letter-spacing: -.01em;
 }
 h1 .accent-dot { color: var(--accent); }
 .standfirst {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   color: var(--muted);
   max-width: 46rem;
   margin: 0 0 1.2rem;
@@ -117,6 +134,7 @@ h1 .accent-dot { color: var(--accent); }
   border-bottom: 1px solid var(--rule-solid);
   background: transparent;
   color: var(--ink);
+  font-family: inherit;
   font-size: .95rem;
 }
 #search:focus { outline: none; border-bottom-color: var(--accent); }
@@ -129,29 +147,30 @@ h1 .accent-dot { color: var(--accent); }
   color: var(--muted);
   cursor: pointer;
   font-size: .85rem;
-  font-family: inherit;
+  font-family: "VD Code", "Source Code Pro", ui-monospace, monospace;
 }
 .chip:hover { color: var(--ink); }
 .chip.active { color: var(--ink); border-bottom-color: var(--accent); }
 .chip .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
 #count {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: "VD Code", "Source Code Pro", ui-monospace, monospace;
   font-size: .72rem;
   color: var(--soft);
 }
 main { max-width: 1080px; margin: 0 auto; padding: .5rem 1.5rem 2rem; }
 section { margin-top: 2.6rem; }
 h2 {
-  font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: 1.55rem;
+  font-family: "VD Code", "Source Code Pro", ui-monospace, monospace;
+  font-weight: 600;
+  font-size: 1.5rem;
   margin: 0 0 .4rem;
 }
-h2 .note { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .72rem; color: var(--soft); margin-left: .5rem; }
+h2 .note { font-family: "VD Code", "Source Code Pro", ui-monospace, monospace; font-size: .72rem; color: var(--soft); margin-left: .5rem; }
 .tablewrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: .9rem; }
 th {
   text-align: left;
+  font-family: "VD Code", "Source Code Pro", ui-monospace, monospace;
   padding: .8rem .75rem .5rem;
   border-bottom: 1px solid var(--rule-solid);
   color: var(--soft);
@@ -167,7 +186,7 @@ td a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--
 td a:hover { color: var(--link); border-bottom-color: var(--link); }
 .note { color: var(--soft); font-size: .78rem; margin-top: .15rem; }
 .verified {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: "VD Code", "Source Code Pro", ui-monospace, monospace;
   color: var(--soft);
   font-size: .72rem;
   white-space: nowrap;
@@ -185,11 +204,11 @@ footer a { color: var(--link); text-decoration: none; border-bottom: 1px solid v
 footer a:hover { border-bottom-color: var(--link); }
 .group { margin-top: 3rem; }
 .group-title {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: "VD Code", "Source Code Pro", ui-monospace, monospace;
   font-size: .75rem;
-  letter-spacing: .18em;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--link);
   margin: 0;
   padding-bottom: .6rem;
   border-bottom: 1px solid var(--rule-solid);
@@ -420,9 +439,8 @@ def render(sections: list[dict[str, Any]], out_dir: Path, max_age_days: int) -> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Compare Cloud — AWS vs Azure vs Google Cloud, plus data platforms</title>
 <meta name="description" content="An open, community-verified mapping of equivalent managed services across AWS, Azure and Google Cloud, and across the Databricks, Microsoft Fabric and Snowflake data platforms.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/SourceCodePro.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/DMSans.ttf" as="font" type="font/ttf" crossorigin>
 <style>{STYLE}</style>
 </head>
 <body>
@@ -452,6 +470,10 @@ def render(sections: list[dict[str, Any]], out_dir: Path, max_age_days: int) -> 
 """
 
     out_dir.mkdir(parents=True, exist_ok=True)
+    if ASSETS_DIR.is_dir():
+        if (out_dir / "assets").exists():
+            shutil.rmtree(out_dir / "assets")
+        shutil.copytree(ASSETS_DIR, out_dir / "assets")
     (out_dir / "index.html").write_text(html)
     print(f"wrote {out_dir / 'index.html'} ({total} services, {len(categories)} categories)")
     print(f"stale (>{max_age_days}d): {len(stale)} rows, oldest verified: {oldest}")

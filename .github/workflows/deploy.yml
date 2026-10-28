@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "data/**"
+      - "assets/**"
       - "scripts/build.py"
       - ".github/workflows/deploy.yml"
   workflow_dispatch:
