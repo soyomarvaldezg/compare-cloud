@@ -121,19 +121,20 @@ services:
     name: Analytics Hub
     url: https://cloud.google.com/analytics-hub
 - id: data-analytics-platform
-  name: Data Analytics platform
-  verified: '2026-09-21'
+  name: Managed Databricks
+  verified: '2026-10-28'
+  aws:
+    name: Databricks on AWS
+    url: https://docs.databricks.com/aws/en/
+    note: Databricks-managed, runs on AWS
   azure:
     name: Azure Databricks
     url: https://azure.microsoft.com/en-us/products/databricks/#overview
-  aws:
-    name: Amazon EMR
-    url: https://aws.amazon.com/emr/
-    note: Databricks is also available on AWS
+    note: first-party Microsoft integration
   gcp:
-    name: Managed Service for Apache Spark
-    url: https://cloud.google.com/products/managed-service-for-apache-spark
-    note: formerly Dataproc; Databricks also available on GCP
+    name: Databricks on Google Cloud
+    url: https://docs.databricks.com/gcp/en/
+    note: Databricks-managed, runs on GCP
 - id: data-catalog
   name: Data catalog & governance
   verified: '2026-09-21'

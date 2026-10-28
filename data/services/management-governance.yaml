@@ -27,6 +27,17 @@ services:
     url: https://docs.cloud.google.com/resource-manager/docs
     note: 'also: Infrastructure Manager (formerly Deployment Manager), Terraform on
       Google Cloud'
+- id: guided-enterprise-app-deployment
+  name: Guided Enterprise Application Deployment
+  verified: '2026-10-28'
+  aws:
+    name: AWS Launch Wizard
+    url: https://aws.amazon.com/launchwizard/
+    note: guided sizing and deployment for SAP, SQL Server, and HPC
+  azure:
+    name: Azure Center for SAP solutions
+    url: https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/overview
+    note: SAP workloads; SQL Server via portal deployment templates
 - id: logging-monitoring
   name: Logging & Monitoring
   verified: '2026-09-21'
@@ -76,12 +87,11 @@ services:
     url: https://aws.amazon.com/servicecatalog/
 - id: cloud-cost-performance-security-advisor
   name: Cloud Cost / Performance / Security Advisor
-  verified: '2026-09-21'
+  verified: '2026-10-28'
   aws:
     name: AWS Trusted Advisor
     url: https://aws.amazon.com/premiumsupport/technology/trusted-advisor/
-    note: 'also: AWS Well-Architected Tool, AWS Cost Management, AWS Cost Explorer,
-      AWS Compute Optimizer'
+    note: 'also: AWS Cost Management, AWS Cost Explorer'
   azure:
     name: Azure Advisor
     url: https://azure.microsoft.com/en-us/products/advisor/
@@ -90,6 +100,46 @@ services:
     name: Active Assist (Recommender)
     url: https://docs.cloud.google.com/recommender/docs/whatis-activeassist
     note: cost and performance recommendations
+- id: resource-rightsizing-recommendations
+  name: Rightsizing Recommendations
+  verified: '2026-10-28'
+  aws:
+    name: AWS Compute Optimizer
+    url: https://aws.amazon.com/compute-optimizer/
+    note: EC2, Auto Scaling, EBS, Lambda, ECS on Fargate, RDS
+  azure:
+    name: Azure Advisor
+    url: https://azure.microsoft.com/en-us/products/advisor/
+    note: cost and performance recommendations
+  gcp:
+    name: Active Assist (Recommender)
+    url: https://docs.cloud.google.com/recommender/docs/whatis-activeassist
+    note: VM rightsizing recommendations
+- id: committed-use-discounts
+  name: Committed-Use Discounts / Savings Plans
+  verified: '2026-10-28'
+  aws:
+    name: AWS Savings Plans
+    url: https://aws.amazon.com/savingsplans/
+    note: 1- or 3-year spend commitment; also Reserved Instances
+  azure:
+    name: Azure savings plan for compute
+    url: https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-compute-overview
+    note: 1- or 3-year hourly spend commitment
+  gcp:
+    name: Committed use discounts
+    url: https://cloud.google.com/docs/cuds
+    note: resource- or spend-based 1- or 3-year commitments
+- id: architecture-review-well-architected
+  name: Well-Architected Review Tool
+  verified: '2026-10-28'
+  aws:
+    name: AWS Well-Architected Tool
+    url: https://aws.amazon.com/well-architected-tool/
+  azure:
+    name: Azure Well-Architected Review
+    url: https://learn.microsoft.com/en-us/assessments/azure-architecture-review/
+    note: workload assessment questionnaire
 - id: alerts-and-remediation-guidance-service
   name: Alerts and Remediation guidance Service
   verified: '2026-09-21'
@@ -129,3 +179,17 @@ services:
   aws:
     name: AWS Managed Services
     url: https://aws.amazon.com/managed-services/
+- id: support-plans
+  name: Support Plans
+  verified: '2026-10-28'
+  aws:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+    note: Developer, Business, Enterprise On-Ramp, Enterprise
+  azure:
+    name: Azure support plans
+    url: https://azure.microsoft.com/en-us/support/plans/
+  gcp:
+    name: Google Cloud Customer Care
+    url: https://cloud.google.com/support/docs
+    note: Standard, Enhanced, Premium

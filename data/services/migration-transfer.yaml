@@ -70,11 +70,11 @@ services:
     url: https://cloud.google.com/database-migration
 - id: server-migration-services
   name: Server Migration Services
-  verified: '2026-09-21'
+  verified: '2026-10-28'
   aws:
     name: AWS Transform MGN
     url: https://aws.amazon.com/application-migration-service/
-    note: formerly Server Migration Service
+    note: formerly Application Migration Service, previously Server Migration Service
   azure:
     name: Site Recovery
     url: https://learn.microsoft.com/en-us/azure/site-recovery/migrate-overview
@@ -84,16 +84,20 @@ services:
     url: https://docs.cloud.google.com/migration-center/docs
     note: 'formerly Migrate for Compute Engine; also: Migrate to Containers'
 - id: application-discovery-services
-  name: Application Discovery Services
-  verified: '2026-09-21'
+  name: Application Discovery & Assessment
+  verified: '2026-10-28'
   aws:
     name: AWS Transform
     url: https://aws.amazon.com/transform/
-    note: formerly Application Discovery Service
+    note: formerly Application Discovery Service, closed to new customers Nov 2025
   azure:
-    name: Microsoft Defender for Cloud Apps
-    url: https://learn.microsoft.com/en-us/defender-cloud-apps/set-up-cloud-discovery
-    note: formerly Cloud App Discovery
+    name: Azure Migrate
+    url: https://learn.microsoft.com/en-us/azure/migrate/migrate-services-overview
+    note: discovery and readiness assessment
+  gcp:
+    name: Migration Center
+    url: https://docs.cloud.google.com/migration-center/docs
+    note: discovery and readiness assessment
 - id: automated-disaster-recovery-services
   name: Automated Disaster Recovery Services
   verified: '2026-09-21'

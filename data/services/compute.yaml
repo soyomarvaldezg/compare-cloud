@@ -25,6 +25,20 @@ services:
   gcp:
     name: Compute Engine
     url: https://cloud.google.com/products/compute
+- id: server-image-builder
+  name: Server Image Builder
+  verified: '2026-10-28'
+  aws:
+    name: Amazon EC2 Image Builder
+    url: https://aws.amazon.com/image-builder/
+    note: build, test, and distribute golden AMIs on a schedule
+  azure:
+    name: Azure VM Image Builder
+    url: https://learn.microsoft.com/en-us/azure/virtual-machines/image-builder-overview
+  gcp:
+    name: Image Builder
+    url: https://cloud.google.com/compute/docs/images/image-builder/overview
+    note: runs on Cloud Build; Linux images only
 - id: bare-metal-server
   name: Bare Metal Server
   verified: '2026-09-21'
