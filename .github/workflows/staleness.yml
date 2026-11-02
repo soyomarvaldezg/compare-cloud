@@ -16,18 +16,22 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v5
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
       - name: Check all service links
         run: uv run python scripts/check_links.py --report staleness-report.md --no-fail
+      - name: Ensure staleness label exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh label create staleness --force --color B60205 --description "Monthly link staleness report"
       - name: Create or update staleness issue
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           TITLE="Staleness report $(date +%Y-%m)"
-          existing=$(gh issue list --label staleness --state open --json number --jq '.[0].number' || true)
+          existing=$(gh issue list --label staleness --state open --json number --jq '.[0].number // empty')
           if [ -n "$existing" ]; then
             gh issue edit "$existing" --title "$TITLE" --body-file staleness-report.md
           else
