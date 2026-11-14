@@ -78,6 +78,14 @@ header.masthead {
   max-width: 1080px;
   margin: 0 auto;
   padding: 3.5rem 1.5rem 2rem;
+  position: relative;
+}
+.minimark {
+  display: block;
+  width: 76px;
+  height: 76px;
+  border-radius: 20px;
+  margin: 0 0 1.4rem;
 }
 .eyebrow {
   font-family: "VD Code", "Source Code Pro", ui-monospace, monospace;
@@ -217,6 +225,54 @@ footer a:hover { border-bottom-color: var(--link); }
 .chip-sep { width: 1px; height: 1rem; background: var(--rule-solid); }
 .hidden { display: none !important; }
 .empty { color: var(--soft); padding: 3rem 0; text-align: center; font-style: italic; }
+.vd-pet-wrap {
+  position: absolute;
+  top: 3.5rem;
+  right: 1.5rem;
+  height: 76px;
+  display: flex;
+  align-items: center;
+}
+.vd-pet {
+  display: block;
+  margin: 0;
+  padding: 6px;
+  background: transparent;
+  border: 0;
+  font-family: "VD Code", "Source Code Pro", monospace;
+  color: var(--link);
+  cursor: pointer;
+}
+.vd-pet-face {
+  display: inline-flex;
+  align-items: center;
+  gap: .38em;
+  font-size: 34px;
+  line-height: 1;
+}
+.vd-pet-chev {
+  flex: none;
+  width: .38em;
+  height: .38em;
+  border-top: .13em solid currentColor;
+  border-right: .13em solid currentColor;
+  transform: rotate(45deg);
+}
+.vd-pet-eyes { display: inline-flex; align-items: center; }
+.vd-pet-eye::before { content: "o"; }
+.vd-pet.is-blink .vd-pet-eye::before { content: "-"; }
+.vd-pet.is-happy .vd-pet-eye::before { content: "^"; }
+.vd-pet.is-surprised .vd-pet-eye::before { content: "O"; }
+.vd-pet.is-wink .vd-pet-eye--l::before { content: "^"; }
+.vd-pet:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
+  border-radius: 2px;
+}
+@media (max-width: 700px) {
+  .vd-pet { padding: 4px; }
+  .vd-pet-face { font-size: 24px; }
+}
 """
 
 APP_JS = """
@@ -260,6 +316,44 @@ APP_JS = """
     });
   });
   apply();
+})();
+
+(function () {
+  var pet = document.querySelector("[data-vd-pet]");
+  if (!pet) return;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var faces = ["is-happy", "is-surprised", "is-wink"];
+  var next = 0;
+  var blinkOff, faceOff;
+
+  function reacting() {
+    return faces.some(function (name) { return pet.classList.contains(name); });
+  }
+
+  function blink() {
+    if (reduce.matches || reacting()) return;
+    pet.classList.add("is-blink");
+    clearTimeout(blinkOff);
+    blinkOff = setTimeout(function () { pet.classList.remove("is-blink"); }, 120);
+  }
+
+  var initial = 0;
+  function tick() {
+    blink();
+    initial += 1;
+    setTimeout(tick, initial < 3 ? 550 : 1500);
+  }
+  tick();
+
+  pet.addEventListener("click", function () {
+    faces.forEach(function (name) { pet.classList.remove(name); });
+    pet.classList.add(faces[next]);
+    next = (next + 1) % faces.length;
+    clearTimeout(faceOff);
+    faceOff = setTimeout(function () {
+      faces.forEach(function (name) { pet.classList.remove(name); });
+    }, 1400);
+  });
 })();
 """
 
@@ -439,16 +533,30 @@ def render(sections: list[dict[str, Any]], out_dir: Path, max_age_days: int) -> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Compare Cloud — AWS vs Azure vs Google Cloud, plus data platforms</title>
 <meta name="description" content="An open, community-verified mapping of equivalent managed services across AWS, Azure and Google Cloud, and across the Databricks, Microsoft Fabric and Snowflake data platforms.">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/SourceCodePro.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="assets/fonts/DMSans.ttf" as="font" type="font/ttf" crossorigin>
 <style>{STYLE}</style>
 </head>
 <body>
 <header class="masthead">
+  <img class="minimark" src="assets/brand/minimark.png" alt="Compare Cloud logo" width="76" height="76">
   <p class="eyebrow">Open source · Community verified · AWS / Azure / Google Cloud · Databricks / Fabric / Snowflake</p>
   <h1>Compare Cloud<span class="accent-dot">.</span></h1>
   <p class="standfirst">Equivalent managed services across the three major clouds and the three major data platforms — mapped in plain YAML, re-verified monthly by an automated link checker, and corrected in the open.</p>
   <p class="byline">Maintained by <a href="https://github.com/soyomarvaldezg" target="_blank" rel="noopener">@soyomarvaldezg</a><span class="sep">·</span><a href="https://links.soyomarvaldezg.com" target="_blank" rel="noopener">links.soyomarvaldezg.com</a><span class="sep">·</span><a href="https://github.com/soyomarvaldezg/compare-cloud" target="_blank" rel="noopener">source &amp; data</a></p>
+  <div class="vd-pet-wrap">
+    <button class="vd-pet" type="button" data-vd-pet aria-label="ValdezData mascot. Click to see its reactions.">
+      <span class="vd-pet-face" aria-hidden="true">
+        <span class="vd-pet-chev"></span>
+        <span class="vd-pet-eyes">
+          <span class="vd-pet-eye vd-pet-eye--l"></span><span class="vd-pet-mouth">_</span><span class="vd-pet-eye vd-pet-eye--r"></span>
+        </span>
+      </span>
+    </button>
+  </div>
 </header>
 <div class="controls">
   <input id="search" type="search" placeholder="Search services — try “queue”, “kubernetes”, “warehouse”…" aria-label="Search services">
