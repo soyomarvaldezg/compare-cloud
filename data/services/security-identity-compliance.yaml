@@ -94,6 +94,20 @@ services:
   gcp:
     name: Cloud Key Management Service
     url: https://cloud.google.com/security/products/security-key-management
+- id: secrets-management
+  name: Secrets Management
+  verified: '2026-11-21'
+  aws:
+    name: AWS Secrets Manager
+    url: https://aws.amazon.com/secrets-manager/
+    note: 'also: AWS Systems Manager Parameter Store (no automatic rotation)'
+  azure:
+    name: Azure Key Vault secrets
+    url: https://learn.microsoft.com/en-us/azure/key-vault/secrets/about-secrets
+    note: keys, secrets, and certificates share one vault
+  gcp:
+    name: Secret Manager
+    url: https://cloud.google.com/secret-manager
 - id: consolidated-management-of-multiple-cloud-accounts
   name: Consolidated Management of Multiple Cloud Accounts
   verified: '2026-09-21'

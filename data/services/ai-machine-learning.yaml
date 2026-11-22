@@ -45,6 +45,21 @@ services:
     name: Vision AI
     url: https://cloud.google.com/vision
     note: 'also: Cloud Video Intelligence'
+- id: image-generation-ai
+  name: Image Generation AI
+  verified: '2026-11-21'
+  aws:
+    name: Amazon Titan Image Generator
+    url: https://docs.aws.amazon.com/bedrock/latest/userguide/titan-image-models.html
+    note: 'also: Amazon Nova Canvas'
+  azure:
+    name: Azure OpenAI image generation
+    url: https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e
+    note: GPT-image series; DALL-E 3 retired March 2026
+  gcp:
+    name: Imagen on Vertex AI
+    url: https://cloud.google.com/vertex-ai/generative-ai/docs/image/generate-images
+    note: 'also: Gemini image models'
 - id: machine-learning
   name: Machine Learning
   verified: '2026-09-21'

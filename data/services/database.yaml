@@ -61,18 +61,19 @@ services:
     note: graph capabilities in Spanner
 - id: in-memory-data-store
   name: In-Memory Data Store
-  verified: '2026-09-21'
+  verified: '2026-11-21'
   aws:
     name: Amazon ElastiCache
     url: https://aws.amazon.com/elasticache/
     note: 'also: Amazon MemoryDB for Redis'
   azure:
-    name: Azure Cache for Redis
-    url: https://azure.microsoft.com/en-us/products/cache/
+    name: Azure Managed Redis
+    url: https://azure.microsoft.com/en-us/products/managed-redis/
+    note: formerly Azure Cache for Redis
   gcp:
-    name: MemoryStore for Redis
+    name: Memorystore
     url: https://cloud.google.com/memorystore
-    note: 'also: MemoryStore for Valkey and Memcached'
+    note: 'also: Memorystore for Valkey and Memcached'
 - id: data-warehousing
   name: Data Warehousing
   verified: '2026-09-21'

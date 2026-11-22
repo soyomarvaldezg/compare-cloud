@@ -44,8 +44,8 @@ services:
   aws:
     name: Amazon CloudWatch
     url: https://aws.amazon.com/cloudwatch/
-    note: 'also: AWS CloudTrail, AWS X-Ray, AWS Distro for OpenTelemetry, Amazon Managed
-      Service for Grafana, Amazon Managed Service for Prometheus'
+    note: 'also: AWS X-Ray, AWS Distro for OpenTelemetry, Amazon Managed Service for
+      Grafana, Amazon Managed Service for Prometheus'
   azure:
     name: Azure Monitor
     url: https://azure.microsoft.com/en-us/products/monitor/
@@ -54,6 +54,21 @@ services:
     name: Google Cloud Observability
     url: https://cloud.google.com/products/observability
     note: formerly Stackdriver; includes Monitoring, Logging, Trace, Error Reporting
+- id: activity-audit-logging
+  name: Activity / Audit Logging
+  verified: '2026-11-10'
+  aws:
+    name: AWS CloudTrail
+    url: https://aws.amazon.com/cloudtrail/
+    note: records Management Console actions and API calls
+  azure:
+    name: Azure Monitor Activity Log
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/activity-log
+    note: control-plane operations; 90-day default retention
+  gcp:
+    name: Cloud Audit Logs
+    url: https://cloud.google.com/logging/docs/audit
+    note: Admin Activity and Data Access audit log types
 - id: resource-configuration-inventory
   name: Resource / Configuration Inventory
   verified: '2026-09-21'

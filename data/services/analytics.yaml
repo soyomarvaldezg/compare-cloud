@@ -106,8 +106,22 @@ services:
   gcp:
     name: Cloud Data Fusion
     url: https://cloud.google.com/data-fusion
-    note: 'replaces Cloud DataPrep (retired); also: Managed Service for Apache Airflow
-      (formerly Cloud Composer), Managed Spark (formerly Dataproc)'
+    note: 'replaces Cloud DataPrep (retired); also: Managed Spark (formerly Dataproc)'
+- id: workflow-orchestration
+  name: Workflow Orchestration
+  verified: '2026-11-21'
+  aws:
+    name: Amazon MWAA
+    url: https://aws.amazon.com/managed-workflows-for-apache-airflow/
+    note: Managed Workflows for Apache Airflow
+  azure:
+    name: Apache Airflow job in Microsoft Fabric
+    url: https://learn.microsoft.com/en-us/fabric/data-factory/apache-airflow-jobs-concepts
+    note: replaces Workflow Orchestration Manager in Data Factory (closed to new instances)
+  gcp:
+    name: Managed Service for Apache Airflow
+    url: https://cloud.google.com/composer
+    note: formerly Cloud Composer
 - id: third-party-data-exchange
   name: Third party data exchange
   verified: '2026-09-21'
